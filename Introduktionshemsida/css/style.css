@@ -1,0 +1,113 @@
+body {
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+  
+}
+.trnsprnt {
+  background-color: transparent;
+}
+.cntr {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}
+.navbar-whitetxt {
+  color: white !important;
+  font-weight: bolder;
+}
+.whitefnt {
+  color: white;
+}
+.button-style { 
+  border: 3px solid white;
+  color: white;
+}
+.btn-style {
+    background-color: transparent !important;
+}
+.button {
+    color: #FFF;
+    background: #FFF;
+    padding: 12px 17px;
+    font-family: 'OpenSansBold', sans-serif;
+    border: 3px solid #FFF;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    display: inline-block;
+    text-align: center !important;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 black;
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+}
+.button:hover {
+    box-shadow: inset 230px 0 0 0 #FFF;
+    color: black;
+}
+.navbutton {
+    color: #FFF;
+    background: transparent;
+    margin: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    border-radius: 2px;
+    display: inline-block;
+    text-align: center !important;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #ff4d4d;
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+}
+.navbutton:hover {
+    box-shadow: inset 100px 0 0 0 #ff4d4d;
+    color: black;
+}
+.jumbotron-style {
+    width: 100% !important;
+  height: auto;
+  margin: 0;
+  border: 0 !important;
+}
+footer {
+    background-color: #111116;
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:75px; 
+}
+.sponsors {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px 30px;
+  font-weight: bold;
+}
+a {
+  color: black;
+}
+.title {
+  padding-bottom: 50px;
+}
