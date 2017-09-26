@@ -10,13 +10,32 @@
 	<div style="width:320px; height:170px; ">
 		<img id="picture" style="max-width:100%;max-height:100%"/><br> 
 	</div>
-	<input type="file" id="fileInput" name="file" /><br>
-	<textarea id="description" placeholder="Skriv in en beskrivning här." rows="4" cols="50"></textarea><br>
-	<input type="text" id="tags" placeholder="Skriv in taggar här."/><br><br>
-	<button onclick="uploadFile()">Upload</button>
+	<input type="file" id="fileInput" name="file" /><br><br>
+	<textarea id="description" placeholder="Skriv in en beskrivning här." rows="4" cols="50"></textarea><br><br>
+<div id="formDiv">
+</div>
+	<br><br><button onclick="uploadFile()">Upload</button>
 </body>
 
 <script>
+
+
+var tags;
+var xhrTag =  new XMLHttpRequest();
+xhrTag.open('GET', 'http://nile16.nu:5984/skate/taggar', true);
+xhrTag.onreadystatechange = function(response) {
+if (xhrTag.readyState == 4) {
+	tags = JSON.parse(xhrTag.response).value;
+	var html = "";
+	for (var i=0;i<tags.length;i++){
+		html += "<input type='checkbox' id='tag"+i+"'> "+tags[i]+"<br>"
+	}
+	formDiv.innerHTML=html;
+	}
+	
+}
+xhrTag.send();
+
 
 var fileReader = new FileReader();
 
@@ -54,7 +73,11 @@ function uploadFile() {
 			fileReader.readAsArrayBuffer(file);
 		}
 	}
-	xhr1.send(JSON.stringify({description:description.value,tags:tags.value}));
+	var selectedTags = [];
+	for (var i=0;i<tags.length;i++){
+		if (document.getElementById("tag"+i).checked) selectedTags.push(tags[i]);
+	}
+	xhr1.send(JSON.stringify({description:description.value,tags:selectedTags}));
 }
 	
 </script>
