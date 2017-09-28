@@ -11,10 +11,13 @@
 		<img id="picture" style="max-width:100%;max-height:100%"/><br> 
 	</div>
 	<input type="file" id="fileInput" name="file" /><br><br>
-	<textarea id="description" placeholder="Skriv in en beskrivning här." rows="4" cols="50"></textarea><br><br>
-<div id="formDiv">
-</div>
-	<br><br><button onclick="uploadFile()">Upload</button>
+	Beskrivning av bilden:<br>
+	<textarea id="description" rows="4" cols="50"></textarea><br><br>
+	Nick:<br>
+	<input type="text" id="nick" /><br><br>
+	Välj passande taggar:
+	<div id="formDiv"></div>
+	<br><br><button onclick="uploadFile()">Upload to Skate</button>
 </body>
 
 <script src="./jpegmeta.js"></script>
@@ -100,7 +103,9 @@ function uploadFile() {
 	for (var i=0;i<tags.length;i++){
 		if (document.getElementById("tag"+i).checked) selectedTags.push(tags[i]);
 	}
-	xhr1.send(JSON.stringify({description:description.value,tags:selectedTags,takenTime:takenTime,lat:lat,lon:lon}));
+	//var uploadTime = Math.floor((new Date().getTime())/1000);
+	var uploadTime = (new Date()).toString();
+	xhr1.send(JSON.stringify({description:description.value.trim(),nick:nick.value.trim(),tags:selectedTags,uploadTime:uploadTime,takenTime:takenTime,lat:lat,lon:lon}));
 }
 	
 </script>
