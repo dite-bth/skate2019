@@ -1,0 +1,30 @@
+body {
+  background-image: url("Introduktionshemsida/img/dark-concrete-texture-wallpaper-6015-6310-hd-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    color:white;
+}
+
+#id {
+    color: white;
+}
+h1,p {
+    font-family: 'Patrick Hand SC', cursive;
+}
+input::placeholder { /* Chrome/Opera/Safari */
+   color: aqua;
+}
+input, textarea { /* Chrome/Opera/Safari */
+    background-color: #111116 !important;
+    border: 2px solid white;
+    border-radius: 2px;
+}
+input[type=text] {
+    
+    color: white;
+}
+.btn {
+    
+    color: white;
+    padding: 15px 25px;
+}
