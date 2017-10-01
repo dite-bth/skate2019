@@ -19,7 +19,7 @@ input, textarea { /* Chrome/Opera/Safari */
     border: 2px solid white;
     border-radius: 2px;
 }
-input[type=text] {
+input[type=text], textarea {
     
     color: white;
 }

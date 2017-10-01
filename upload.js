@@ -7,6 +7,10 @@ var lat  = false;
 var lon  = false;
 var takenTime = false;
 
+//Reset input fields
+description.value="";
+nick.value="";
+
 // Get tags from database and make a checkbox list 
 var xhrTag =  new XMLHttpRequest();
 xhrTag.open('GET', 'http://nile16.nu:5984/misc/tags', true);
@@ -36,9 +40,12 @@ fileInput.addEventListener("change",function(e) {
     takenTime = false;
     fileReaderExif.onloadend = function() {
       meta = (new JpegMeta.JpegFile(this.result, file.name).metaGroups);
-      lat  = toDecimal(meta.gps.GPSLatitude.value).toFixed(5);
-      lon  = toDecimal(meta.gps.GPSLongitude.value).toFixed(5);
-      takenTime = meta.exif.DateTimeOriginal.value;
+      if (meta.gps){
+        lat  = toDecimal(meta.gps.GPSLatitude.value).toFixed(5);
+        lon  = toDecimal(meta.gps.GPSLongitude.value).toFixed(5);
+	  }
+      if (meta.exif&&meta.exif.DateTimeOriginal)
+        takenTime = meta.exif.DateTimeOriginal.value;
     };
     fileReaderExif.readAsBinaryString(file);
 
