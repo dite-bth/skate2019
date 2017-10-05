@@ -121,10 +121,9 @@ GalleryPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"E:\osmq\web\node\skate\skate2019\src\pages\gallery\gallery.html"*/'<!--\nGenerated template for the PicturesPage page.\n\nSee http://ionicframework.com/docs/components/#navigation for more info on\nIonic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color=dark>\n    <h1> Galleri </h1>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n\n      <ion-col col-12 col-md>\n      <ion-card id="ramKort" color="yellow">\n        <ion-card id="infoKort">\n          <h3>vadå utställning ?</h3>\n          <p>\n            Vad är Lorem Ipsum?\n            Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin.<br />\n             Lorem ipsum har varit standard ända sedan 1500-talet,\n             när en okänd boksättare tog att antal bokstäver och blandade dem för <br />\n             att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden,\n              utan även övergången till elektronisk typografi utan större förändringar.\n               Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark\n                med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.\n          </p>\n        </ion-card>\n    </ion-card>\n    </ion-col>\n\n\n      <ion-col col-12 col-md>\n        <ion-card color="dark-green">\n          <img src="../assets/karlstad.jpg"/>\n          <h2>Karlstad</h2>\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-12 col-md>\n        <ion-card color="dark-green">\n          <img src="../assets/karlstad.jpg"/>\n          <h2>Karlstad</h2>\n        </ion-card>\n      </ion-col>\n\n\n      <ion-col col-12 col-md>\n        <ion-card color="dark-green">\n          <img src="../assets/stockholm.jpg"/>\n          <h2>Stockholm</h2>\n        </ion-card>\n      </ion-col>\n\n\n\n\n\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"E:\osmq\web\node\skate\skate2019\src\pages\gallery\gallery.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_skate_skate__["a" /* SkateProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_skate_skate__["a" /* SkateProvider */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_skate_skate__["a" /* SkateProvider */]])
 ], GalleryPage);
 
-var _a, _b;
 //# sourceMappingURL=gallery.js.map
 
 /***/ }),
@@ -147,8 +146,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var SkateProvider = (function () {
     function SkateProvider() {
-        this.version = "0.2";
+        this.version = "0.5";
     }
+    SkateProvider.prototype.toDecimal = function (number) {
+        return number[0].num / number[0].den + (number[1].num / (60 * number[1].den)) + (number[2].num / (3600 * number[2].den));
+    };
+    ;
     SkateProvider.prototype.getTags = function (callback) {
         var xhrTag = new XMLHttpRequest();
         xhrTag.open('GET', 'http://nile16.nu:5984/misc/tags', true);
@@ -200,6 +203,54 @@ var SkateProvider = (function () {
             }
         };
         xhrTag.send();
+    };
+    SkateProvider.prototype.getExif = function (file, callback) {
+        var self = this;
+        var fileReaderExif = new FileReader();
+        var lat = null;
+        var lon = null;
+        var takenTime = false;
+        fileReaderExif.onloadend = function () {
+            var meta = (new JpegMeta.JpegFile(this.result, file.name).metaGroups);
+            if (meta.gps) {
+                lat = self.toDecimal(meta.gps.GPSLatitude.value).toFixed(5);
+                lon = self.toDecimal(meta.gps.GPSLongitude.value).toFixed(5);
+            }
+            if (meta.exif && meta.exif.DateTimeOriginal)
+                takenTime = meta.exif.DateTimeOriginal.value;
+            callback({ takenTime: takenTime, lat: lat, lon: lon });
+        };
+        fileReaderExif.readAsBinaryString(file);
+    };
+    SkateProvider.prototype.upload = function (file, meta, callback) {
+        var url = 'http://nile16.nu:5984/media/';
+        var fileReader = new FileReader();
+        var xhr1 = new XMLHttpRequest();
+        xhr1.open('POST', url, true);
+        xhr1.setRequestHeader("Content-Type", "application/json");
+        xhr1.onreadystatechange = function (response) {
+            if (xhr1.readyState == 4) {
+                var docId = JSON.parse(xhr1.response).id;
+                var docRev = JSON.parse(xhr1.response).rev;
+                var name = encodeURIComponent(file.name);
+                var type = file.type;
+                var xhr2 = new XMLHttpRequest();
+                xhr2.open('PUT', url + docId + '/' + name + '?rev=' + docRev, true);
+                xhr2.setRequestHeader('Content-Type', type);
+                xhr2.onreadystatechange = function (response) {
+                    if (xhr2.readyState == 4) {
+                        callback(xhr2.response);
+                    }
+                };
+                fileReader.onload = function (readerEvent) {
+                    xhr2.send(this.result);
+                };
+                fileReader.readAsArrayBuffer(file);
+            }
+        };
+        //var uploadTime = Math.floor((new Date().getTime())/1000);
+        meta.uploadTime = (new Date()).toString();
+        xhr1.send(JSON.stringify(meta));
     };
     return SkateProvider;
 }());
