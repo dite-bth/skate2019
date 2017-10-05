@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { GalleryPage} from '../pages/gallery/gallery';
 import { TourPage} from '../pages/tour/tour';
+import { SkateProvider } from '../providers/skate/skate';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TourPage} from '../pages/tour/tour';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SkateProvider
   ]
 })
 export class AppModule {}
