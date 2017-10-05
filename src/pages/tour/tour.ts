@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SkateProvider } from '../../providers/skate/skate';
 
 /**
  * Generated class for the TourPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TourPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider) {
+    this.skate.getTour(function(tour){
+      console.log(tour);
+    });
   }
 
   ionViewDidLoad() {
