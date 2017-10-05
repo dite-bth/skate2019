@@ -1,0 +1,49 @@
+page-home {
+
+  .right {
+    float: right;
+  }
+  button {
+    position: absolute;
+  }
+  #parallelogram {
+    width: 550px;
+    height: 400px;
+    -webkit-clip-path: polygon(71% 0, 100% 26%, 100% 100%, 23% 100%, 1% 73%, 0 0);
+    clip-path: polygon(71% 0, 100% 26%, 100% 100%, 23% 100%, 1% 73%, 0 0);
+    background: color($colors, dark-green);
+    padding: 50px;
+
+  }
+
+  .dark {
+    background-color: #262626;
+  }
+  ion-content {
+    background-image: url("http://skekzi.com/wp-content/uploads/2016/01/LT_WhiteGrunge_05.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .para {
+    transform: none !important;
+    font-family: 'Source Sans Pro';
+    color: white;
+  }
+  .header {
+    transform: none !important;
+
+
+
+  }
+  .subheader {
+    transform: none !important;
+    font-family: 'Source Sans Pro';
+
+
+  }
+  #square {
+    background: color($colors, secondary) !important;
+    width: 500px;
+    height: 150px;
+  }
+}

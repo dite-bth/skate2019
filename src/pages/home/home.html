@@ -1,0 +1,48 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+ <ion-header>
+  <ion-navbar color="dark">
+    <div class="right">
+      <button ion-button clear color="light" (click)="showTour()">Turné</button>
+      <button ion-button clear color="light" (click)="showGallery()">Galleri</button>
+
+
+
+      </div>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+       <h1 class="header" style="font-weight: bolder; text-decoration: underline; font-size: 35px;">Skate!</h1>
+       <h2 class="subheader">Personer och platser</h2>
+        <div id="parallelogram" style="box-shadow: 10px 10px 5px #000000 !important;"><h1 class="para">En vandringsutställning<br> dam, tem fugitecus<br> eium eseque pers<br> peritas is aut eso <br> blaborerum quaturia nosaped et.</h1></div>
+
+      </ion-col>
+
+      <ion-col>
+        <h3 class="subheader">En vandringsutställning dam fem fugitecus <br>
+        eium eseque persperitos is aut esto blaborerum <br>
+        quaturia nosaped et</h3>
+        <div style="box-shadow: 10px 10px 10px #000000;"><ion-img src="https://i.imgur.com/uWEXZV7.jpg" width="100%" height="500px"></ion-img></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      ...
+    </ion-list>
+  </ion-content>
+</ion-menu>
+  <ion-content padding>
+
+  </ion-content>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

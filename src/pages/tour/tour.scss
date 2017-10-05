@@ -1,0 +1,92 @@
+page-tour {
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  .right {
+    float: right;
+  }
+
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  ion-content {
+    background: color($colors, dark) !important;
+  }
+
+  .tourbox {
+    border: 2px solid color($colors, light);
+    display: inline-block;
+    min-width: 100%;
+    min-height: 100%;
+    width: 46%;
+
+    height: 355px !important;
+  }
+  .cntr {
+    text-align: center;
+
+  }
+  .align-center {
+    display: flex;
+    justify-content: center;
+  }
+  .center {
+    text-align: center !important;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+
+  }
+  h6 {
+    font-weight: 600 !important;
+  }
+
+  .bootn {
+    color: #000;
+    background: #FFF;
+    padding: 12px 17px;
+    font-family: 'OpenSansBold', sans-serif;
+    border: 3px solid #FFF;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    display: inline-block;
+    text-align: center !important;
+    cursor: pointer;
+    -webkit-transition: all ease 0.4s;
+    -moz-transition: all ease 0.4s;
+    transition: all ease 0.4s;
+  }
+  .bootn:hover {
+    background: transparent;
+    color: #FFF;
+  }
+
+  //MOBILE CSS
+  @media screen and (min-width: 480px) {
+    ion-col {
+      margin: 1% !important;
+    }
+    @media only screen and (max-width: 1100px) {
+      h1 { font-size:100%;}
+    }
+    .center {
+      text-align: center !important;
+      font-family: 'Montserrat';
+      text-transform: uppercase;
+      font-weight: 500;
+      color: white;
+
+    }
+  }
+
+}
