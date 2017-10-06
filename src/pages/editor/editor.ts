@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
+import { EditorGalleryModalPage } from '../editor-gallery-modal/editor-gallery-modal';
 
 
 
@@ -12,11 +13,16 @@ import { SkateProvider } from '../../providers/skate/skate';
 export class EditorPage {
 
   tags: any;
+  gallery_items: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController) {
     this.skate.getTags((tags) => {
       this.tags = tags;
       console.log(this.tags);
+    })
+
+    this.skate.getMedia((items) => {
+      this.gallery_items = items;
     })
   }
 
@@ -46,5 +52,20 @@ export class EditorPage {
       ]
     });
     prompt.present();
+  }
+
+  editGalleryItem(item) {
+    console.log(item);
+
+    const galleryModal = this.modalCtrl.create(EditorGalleryModalPage, {item});
+    galleryModal.present();
+  }
+
+  saveGalleryItem(item) {
+    /*
+      Database stuff here
+     */
+    console.log("saveGalleryItem");
+    console.log(item);
   }
 }

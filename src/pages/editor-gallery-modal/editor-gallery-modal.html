@@ -1,0 +1,47 @@
+<!--
+  Generated template for the EditorGalleryModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Redigera</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="saveGalleryItem(f.value)" #f="ngForm">
+    <ion-list *ngFor="let item of item">
+      <ion-item>
+        <ion-label color="primary">Nick</ion-label>
+        <ion-input value={{item.nick}} name="nick" [(ngModel)]="item.nick"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Beskrivning</ion-label>
+        <ion-input value={{item.description}} name="description" [(ngModel)]="item.description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Tagen</ion-label>
+        <ion-input value={{item.takenTime}} name="taken" [(ngModel)]="item.takenTime"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Uppladdad</ion-label>
+        <ion-input value={{item.uploadTime}} name="uploaded" [(ngModel)]="item.uploadTime"></ion-input>
+      </ion-item>
+      <h1>Taggar</h1>
+      <ion-item *ngFor="let tag of item.tags">
+        <ion-label>{{tag}}</ion-label>
+        <ion-checkbox color="dark" checked="true"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <img src={{item.url}} style="width: 250px"/>
+      </ion-item>
+      <ion-input type="file"></ion-input>
+    </ion-list>
+    <button ion-button color="primary">Uppdatera</button>
+  </form>
+</ion-content>
