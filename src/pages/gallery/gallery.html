@@ -6,7 +6,10 @@ Ionic pages and navigation.
 -->
 <ion-header>
   <ion-navbar color=dark>
-    <h1> Galleri </h1>
+    <div class="centerDiv">
+      <h1> Galleri </h1>
+      <button ion-button color=yellow id="infoButton" (click)="showPrompt()"> Om galleri &nbsp;<ion-icon name="help"></ion-icon></button>
+    </div>
   </ion-navbar>
 </ion-header>
 
@@ -36,14 +39,15 @@ Ionic pages and navigation.
 
 
 
-      <ion-col *ngFor="let media of gallery_items" col-12 col-md>
+      <ion-col *ngFor="let media of gallery_items" col-12 col-md-4>
         <ion-card>
           <img *ngIf=(media.url) [src]="media.url" />
-          <h2 *ngIf=(media.nick)> {{media.nick}} </h2>
-          <h2> {{media.description}} </h2>
-
+          <h2 *ngIf=(media.nick) id="h2Nick"> {{media.nick}} </h2>
+          <p id="pDesc"> {{media.description}} </p>
+          <p id="pUploadTime"> {{media.uploadTime}}</p>
         </ion-card>
       </ion-col>
+
 
 
 

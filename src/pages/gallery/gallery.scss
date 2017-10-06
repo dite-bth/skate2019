@@ -1,23 +1,30 @@
 page-home {
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
   ion-content{
   //background: color($colors, dark)!important;
   background-image: url("../assets/images/graybackground.jpg");
  }
+
+ .centerDiv{
+   text-align: center !important;
+ }
+
  h1{
+   font-family: "Montserrat" !important;
    text-align: center;
    font-size: 25px !important;
    color: white !important;
    font-weight: bold;
  }
  h2{
+
    text-align: center;
    font-size: 30px !important;
    color: black !important;
-   font-style: italic;
-   font-weight: bold;
-
  }
+
  h3{
+
    text-align: center;
    font-size: 25px !important;
    color: black !important;
@@ -31,6 +38,7 @@ ion-card{
 }
 
 #ramKort{
+
   text-align: center;
   padding: 15%;
   -webkit-clip-path: polygon(5% 2%, 98% 5%, 97% 95%, 10% 89%);
@@ -38,18 +46,29 @@ ion-card{
 }
 
 #infokort{
+  font-family: "Montserrat" !important;
   padding: 2% !important;
   text-align: center;
   font-size: 18px !important;
   color: black !important;
 }
+#infoButton{
+  font-family: "Montserrat" !important;
+  font-size: 20px;
+}
 
-
-
-
-
-
-
+#h2Nick{
+ font-weight: bold !important;
+ text-decoration: underline;
+}
+#pDesc{
+  font-size: 20px;
+  font-style: italic !important;
+}
+#pUploadTime{
+  padding-top: 40px;
+  font-size: 12px !important;
+}
 
 
 
