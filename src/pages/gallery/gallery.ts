@@ -9,11 +9,18 @@ import { SkateProvider } from '../../providers/skate/skate';
 })
 export class GalleryPage {
 
+  gallery_items: any;
+
+
+
   constructor(public navCtrl: NavController, public skate:SkateProvider) {
-    this.skate.getMedia(function(media){
+    this.skate.getMedia((media)=>{
+      this.gallery_items = media;
       console.log(media)
     });
   }
+
+
 
 
 

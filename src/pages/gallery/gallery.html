@@ -23,39 +23,28 @@ Ionic pages and navigation.
           <p>
             Vad är Lorem Ipsum?
             Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin.<br />
-             Lorem ipsum har varit standard ända sedan 1500-talet,
-             när en okänd boksättare tog att antal bokstäver och blandade dem för <br />
-             att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden,
-              utan även övergången till elektronisk typografi utan större förändringar.
-               Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark
-                med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.
+            Lorem ipsum har varit standard ända sedan 1500-talet,
+            när en okänd boksättare tog att antal bokstäver och blandade dem för <br />
+            att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden,
+            utan även övergången till elektronisk typografi utan större förändringar.
+            Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark
+            med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.
           </p>
         </ion-card>
     </ion-card>
     </ion-col>
 
 
-      <ion-col col-12 col-md>
-        <ion-card color="dark-green">
-          <img src="../assets/karlstad.jpg"/>
-          <h2>Karlstad</h2>
+
+      <ion-col *ngFor="let media of gallery_items" col-12 col-md>
+        <ion-card>
+          <img *ngIf=(media.url) [src]="media.url" />
+          <h2 *ngIf=(media.nick)> {{media.nick}} </h2>
+          <h2> {{media.description}} </h2>
+
         </ion-card>
       </ion-col>
 
-      <ion-col col-12 col-md>
-        <ion-card color="dark-green">
-          <img src="../assets/karlstad.jpg"/>
-          <h2>Karlstad</h2>
-        </ion-card>
-      </ion-col>
-
-
-      <ion-col col-12 col-md>
-        <ion-card color="dark-green">
-          <img src="../assets/stockholm.jpg"/>
-          <h2>Stockholm</h2>
-        </ion-card>
-      </ion-col>
 
 
 
