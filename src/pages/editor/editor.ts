@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { SkateProvider } from '../../providers/skate/skate';
 
 
 
@@ -10,7 +11,13 @@ import { AlertController } from 'ionic-angular';
 })
 export class EditorPage {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  tags: any;
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider) {
+    this.skate.getTags((tags) => {
+      this.tags = tags;
+      console.log(this.tags);
+    })
   }
 
   showPrompt() {

@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { GalleryPage} from '../pages/gallery/gallery';
 import { TourPage} from '../pages/tour/tour';
 import { UploadPage} from '../pages/upload/upload';
+import { EditorPage } from '../pages/editor/editor';
 import { SkateProvider } from '../providers/skate/skate';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SkateProvider } from '../providers/skate/skate';
     HomePage,
     GalleryPage,
     TourPage,
-    UploadPage
+    UploadPage,
+    EditorPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { SkateProvider } from '../providers/skate/skate';
     HomePage,
     GalleryPage,
     TourPage,
-    UploadPage
+    UploadPage,
+    EditorPage
   ],
   providers: [
     StatusBar,
