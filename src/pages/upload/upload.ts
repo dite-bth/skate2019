@@ -5,7 +5,6 @@ import { SkateProvider } from '../../providers/skate/skate';
 declare var picture;
 declare var fileInput;
 
-
 @IonicPage()
 @Component({
   selector: 'page-upload',
