@@ -1,9 +1,16 @@
 page-editor {
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  ion-content{ font-family: 'Montserrat' !important; }
 
- h1{text-align: center !important;}
+  h1{text-align: center !important;}
 
- ion-navbar{
-   text-align: center !important;
+  .buttonDiv{
+   display: inline-block !important;
   }
+
+
+
+
+
 
 }
