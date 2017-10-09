@@ -12,7 +12,7 @@ import { UploadPage} from '../pages/upload/upload';
 import { EditorPage } from '../pages/editor/editor';
 import { SkateProvider } from '../providers/skate/skate';
 import { EditorGalleryModalPage } from '../pages/editor-gallery-modal/editor-gallery-modal';
-
+import { ModalContentPage } from '../pages/tour/pages';
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +21,8 @@ import { EditorGalleryModalPage } from '../pages/editor-gallery-modal/editor-gal
     TourPage,
     UploadPage,
     EditorPage,
-    EditorGalleryModalPage
+    EditorGalleryModalPage,
+    ModalContentPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { EditorGalleryModalPage } from '../pages/editor-gallery-modal/editor-gal
     TourPage,
     UploadPage,
     EditorPage,
-    EditorGalleryModalPage
+    EditorGalleryModalPage,
+    ModalContentPage
   ],
   providers: [
     StatusBar,
