@@ -35,25 +35,12 @@ public version: string = "0.5";
         var rows = JSON.parse(xhrTag.response).rows;
         var result = [];
         for (var i=0;i<rows.length;i++){
-          var temp = {
-          description:null,
-          nick:null,
-          tags:null,
-          takenTime:null,
-          uploadTime:null,
-          lat:null,
-          lon:null,
-          //mediaType:false,
-          url:null
-          }
-          if (rows[i].doc.description) temp.description = rows[i].doc.description;
-          if (rows[i].doc.nick) temp.nick = rows[i].doc.nick;
-          if (rows[i].doc.tags) temp.tags = rows[i].doc.tags;
-          if (rows[i].doc.takenTime) temp.takenTime = rows[i].doc.takenTime;
-          if (rows[i].doc.uploadTime) temp.uploadTime = rows[i].doc.uploadTime;
-          if (rows[i].doc.lat) temp.lat = rows[i].doc.lat;
-          if (rows[i].doc.lon) temp.lon = rows[i].doc.lon;
-          if (rows[i].doc._attachments) temp.url = "http://nile16.nu:5984/media/"+rows[i].doc._id+"/"+Object.keys(rows[i].doc._attachments)[0];
+          var temp = rows[i].doc;
+          delete temp._rev;
+          if (temp._attachments){
+             temp.url = "http://nile16.nu:5984/media/"+temp._id+"/"+Object.keys(temp._attachments)[0];
+             delete temp._attachments;
+           }
           result.push(temp);
         }
         callback(result);
@@ -133,8 +120,9 @@ public version: string = "0.5";
           fileReader.readAsArrayBuffer(file);
         }
       }
-      //var uploadTime = Math.floor((new Date().getTime())/1000);
-      meta.uploadTime = (new Date()).toString();
+      meta.uploadTime = Math.floor((new Date().getTime())/1000);
+      //meta.uploadTime = (new Date()).toString();
+      meta.status=0;
       xhr1.send(JSON.stringify(meta));
     }
 
