@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
-import { EditorGalleryModalPage } from '../editor-gallery-modal/editor-gallery-modal';
+import { EditorGalleryModalPage } from '../editor/editor-gallery-modal';
 
 
 

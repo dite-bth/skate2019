@@ -11,7 +11,7 @@ import { TourPage} from '../pages/tour/tour';
 import { UploadPage} from '../pages/upload/upload';
 import { EditorPage } from '../pages/editor/editor';
 import { SkateProvider } from '../providers/skate/skate';
-import { EditorGalleryModalPage } from '../pages/editor-gallery-modal/editor-gallery-modal';
+import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
 @NgModule({
   declarations: [
