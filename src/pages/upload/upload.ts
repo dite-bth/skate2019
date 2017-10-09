@@ -82,6 +82,32 @@ uploadFile(){
   });
   this.navCtrl.pop();
 }
-
+addTags() {
+let prompt = this.alertCtrl.create({
+  title: 'Lägg till egna taggar',
+  message: "Här kan du lägga till taggar som du tycker ska vara med på utställningen och hemsidan!",
+  inputs: [
+    {
+      tag: 'Tagg',
+      placeholder: 'Enter Tag here'
+    },
+  ],
+  buttons: [
+    {
+      text: 'Cancel',
+      handler: data => {
+        console.log('Cancel clicked');
+      }
+    },
+    {
+      text: 'Save',
+      handler: data => {
+        console.log('Saved clicked');
+      }
+    }
+  ]
+});
+prompt.present();
+}
 
 }
