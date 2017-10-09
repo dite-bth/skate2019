@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 
 declare var picture;
@@ -20,7 +20,7 @@ export class UploadPage {
   tags = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     //this.skate.getMedia(function(media){console.log(media)});
   }
 
@@ -72,11 +72,42 @@ uploadFile(){
     console.log(meta);
     this.skate.upload(this.file,meta,function(res){
       console.log(res);
-      alert("Uppladdning klar!")
     });
-
+    let alert = this.alertCtrl.create({
+    title:'Uppladdning klar',
+    subTitle: 'Tack för ditt bidrag!',
+    buttons: ['OK!']
+    });
+    alert.present();
   });
+  this.navCtrl.pop();
 }
-
+addTags() {
+let prompt = this.alertCtrl.create({
+  title: 'Lägg till egna taggar',
+  message: "Här kan du lägga till taggar som du tycker ska vara med på utställningen och hemsidan!",
+  inputs: [
+    {
+      name: 'Tagg',
+      placeholder: 'Enter Tag here'
+    },
+  ],
+  buttons: [
+    {
+      text: 'Cancel',
+      handler: data => {
+        console.log('Cancel clicked');
+      }
+    },
+    {
+      text: 'Save',
+      handler: data => {
+        console.log('Saved clicked');
+      }
+    }
+  ]
+});
+prompt.present();
+}
 
 }
