@@ -18,12 +18,15 @@ export class EditorPage {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController) {
     this.skate.getTags((tags) => {
       this.tags = tags;
-      console.log(this.tags);
     })
 
     this.skate.getMedia((items) => {
       this.gallery_items = items;
     })
+
+    //this.skate.edit("5f4f2c68594976ce99c32f1f83016f64",{hilfe:false},(res) => {
+    //  console.log("got:",res);
+    //})
   }
 
   showPrompt() {

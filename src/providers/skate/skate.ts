@@ -138,5 +138,30 @@ public version: string = "0.5";
       xhr1.send(JSON.stringify(meta));
     }
 
+    edit(docId,meta,callback) {
+      var url = 'http://nile16.nu:5984/media/';
+      var xhr1 =  new XMLHttpRequest();
+      xhr1.open('GET', url+docId, true);
+      xhr1.setRequestHeader("Content-Type", "application/json");
+      xhr1.onreadystatechange = function(response) {
+        if (xhr1.readyState == 4) {
+          var doc = JSON.parse(xhr1.response);
+          delete doc._id;
+          Object.assign(doc,meta);
+//          console.log("doc:",doc);
+          var xhr2 = new XMLHttpRequest();
+          xhr2.open('PUT', url+docId, true);
+          xhr2.setRequestHeader("Content-Type", "application/json");
+          xhr2.onreadystatechange = function(response) {
+            if (xhr2.readyState == 4) {
+              callback(xhr2.response);
+            }
+          }
+          xhr2.send(JSON.stringify(doc));
+        }
+      }
+      xhr1.send();
+    }
+
 
 }
