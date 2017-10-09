@@ -88,7 +88,7 @@ let prompt = this.alertCtrl.create({
   message: "Här kan du lägga till taggar som du tycker ska vara med på utställningen och hemsidan!",
   inputs: [
     {
-      tag: 'Tagg',
+      name: 'Tagg',
       placeholder: 'Enter Tag here'
     },
   ],
