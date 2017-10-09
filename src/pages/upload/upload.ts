@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 
 declare var picture;
@@ -20,7 +20,7 @@ export class UploadPage {
   tags = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     //this.skate.getMedia(function(media){console.log(media)});
   }
 
@@ -72,10 +72,15 @@ uploadFile(){
     console.log(meta);
     this.skate.upload(this.file,meta,function(res){
       console.log(res);
-      alert("Uppladdning klar!")
     });
-
+    let alert = this.alertCtrl.create({
+    title:'Uppladdning klar',
+    subTitle: 'Tack för ditt bidrag!',
+    buttons: ['OK!']
+    });
+    alert.present();
   });
+  this.navCtrl.pop();
 }
 
 
