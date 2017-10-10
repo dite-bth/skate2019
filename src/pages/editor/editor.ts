@@ -16,7 +16,7 @@ export class EditorPage {
   gallery_items: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController) {
-    this.skate.getTags((tags) => {
+    this.skate.getWhiteListedTags((tags) => {
       this.tags = tags;
     })
 
@@ -24,7 +24,7 @@ export class EditorPage {
       this.gallery_items = items;
     })
 
-    //this.skate.edit("5f4f2c68594976ce99c32f1f83016f64",{hilfe:false},(res) => {
+    //this.skate.editMedia("5f4f2c68594976ce99c32f1f830349f5",{status:1,nick:"sk8 kiddo"},(res) => {
     //  console.log("got:",res);
     //})
   }

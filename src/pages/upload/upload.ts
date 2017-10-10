@@ -28,7 +28,7 @@ export class UploadPage {
   ionViewDidLoad(){
 
     // Get tags from skate database and create a checkbox tag list
-    this.skate.getTags((tags)=>{
+    this.skate.getWhiteListedTags((tags)=>{
          for (var i=0;i<tags.length;i++)
   		     this.tags.push({Name:tags[i],Value:false});
   	   });
@@ -66,11 +66,7 @@ uploadFile(){
   //meta.description = description.value.trim();
   meta.description = this.description.trim();
 
-  this.skate.getExif(this.file,(exif) => {
-
-    Object.assign(meta,exif);
-    console.log(meta);
-    this.skate.upload(this.file,meta,function(res){
+    this.skate.uploadMedia(this.file,meta,function(res){
       console.log(res);
     });
     let alert = this.alertCtrl.create({
@@ -79,9 +75,9 @@ uploadFile(){
     buttons: ['OK!']
     });
     alert.present();
-  });
   this.navCtrl.pop();
 }
+
 addTags() {
 let prompt = this.alertCtrl.create({
   title: 'Lägg till egna taggar',
