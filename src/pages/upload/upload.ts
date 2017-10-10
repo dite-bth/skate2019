@@ -12,13 +12,12 @@ declare var fileInput;
 })
 export class UploadPage {
 
-
+  tags = [];
   file: any;
   nick:string = "";
   description:string = "";
 
-  tags = [];
-
+  preparedTags = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     //this.skate.getMedia(function(media){console.log(media)});
@@ -27,10 +26,11 @@ export class UploadPage {
 
   ionViewDidLoad(){
 
-    // Get tags from skate database and create a checkbox tag list
-    this.skate.getTags((tags)=>{
-         for (var i=0;i<tags.length;i++)
-  		     this.tags.push({Name:tags[i],Value:false});
+    // Get tags from skate database and create a suggestion list for tag input
+    this.skate.getTags((preparedTags)=>{
+         for (var i=0;i<preparedTags.length;i++)
+  		     this.preparedTags.push(preparedTags[i]);
+           console.log(preparedTags)
   	   });
 
   // Create listener that display the selected picture when a picture is selected.
@@ -43,12 +43,11 @@ export class UploadPage {
   	fileReaderImg.readAsDataURL(fileInput.files[0]);
   });
 
-
 }
+
 
 // This function is executed when the upload button is pressed
 uploadFile(){
-
   var meta = {
     tags:[],
     nick:"",
@@ -57,7 +56,7 @@ uploadFile(){
 
   // Check which tags are selected and add those to meta in the form of an array
   for (var i=0;i<this.tags.length;i++){
-    if (this.tags[i].Value) meta.tags.push(this.tags[i].Name);
+    if (this.tags[i]) meta.tags.push(this.tags[i]);
   }
 
   //meta.nick = nick.value.trim();
@@ -81,33 +80,6 @@ uploadFile(){
     alert.present();
   });
   this.navCtrl.pop();
-}
-addTags() {
-let prompt = this.alertCtrl.create({
-  title: 'Lägg till egna taggar',
-  message: "Här kan du lägga till taggar som du tycker ska vara med på utställningen och hemsidan!",
-  inputs: [
-    {
-      name: 'Tagg',
-      placeholder: 'Enter Tag here'
-    },
-  ],
-  buttons: [
-    {
-      text: 'Cancel',
-      handler: data => {
-        console.log('Cancel clicked');
-      }
-    },
-    {
-      text: 'Save',
-      handler: data => {
-        console.log('Saved clicked');
-      }
-    }
-  ]
-});
-prompt.present();
 }
 
 }

@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { RlTagInputModule } from 'angular2-tag-input';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,6 +14,7 @@ import { EditorPage } from '../pages/editor/editor';
 import { SkateProvider } from '../providers/skate/skate';
 import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +28,8 @@ import { ModalContentPage } from '../pages/tour/pages';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    RlTagInputModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
