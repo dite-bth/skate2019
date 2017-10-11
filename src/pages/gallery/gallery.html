@@ -23,8 +23,14 @@ Ionic pages and navigation.
 
       <ion-col *ngFor="let media of gallery_items" col-12 col-md-4>
         <!--<ion-card class="ramKort">-->
-          <ion-card class="imgKort">
-            <img *ngIf=(media.url) [src]="media.url" (click)="showPrompt()"/>
+            <ion-card class="imgKort">
+          <!--  <div style="width:100px;height:100px">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100" >
+            <path stroke-width="2" fill="#FF9F00" transform="rotate(0 50 50) scale(1.0)" d="M0 100 L80 100 L100 80 L100 60 L80 60 L80 40 L60 40 L60 20 L40 20 L40 0 L20 0 L0 20" />
+            </svg>
+          </div> -->
+
+          <img *ngIf=(media.url) [src]="media.url" (click)="showPrompt()"/>
 
               <div class="centerDivButtons">
                 <button ion-button class="socialButtons"><ion-icon name="star"></ion-icon></button>
