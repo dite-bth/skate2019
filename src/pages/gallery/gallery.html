@@ -8,7 +8,6 @@ Ionic pages and navigation.
   <ion-navbar color=dark>
     <div class="centerDiv">
       <h1> Galleri </h1>
-      <button ion-button color=yellow id="infoButton" (click)="showPrompt()"> Om galleri &nbsp;<ion-icon name="help"></ion-icon></button>
       <button ion-button color="secondary" (click)="uploadPageModal()">Bidra!</button>
     </div>
   </ion-navbar>
@@ -20,38 +19,29 @@ Ionic pages and navigation.
   <ion-grid>
     <ion-row>
 
-      <ion-col col-12 col-md>
-      <ion-card id="ramKort" color="yellow">
-        <ion-card id="infoKort">
-          <h3>vadå utställning ?</h3>
-          <p>
-            Vad är Lorem Ipsum?
-            Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin.<br />
-            Lorem ipsum har varit standard ända sedan 1500-talet,
-            när en okänd boksättare tog att antal bokstäver och blandade dem för <br />
-            att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden,
-            utan även övergången till elektronisk typografi utan större förändringar.
-            Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark
-            med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.
-          </p>
-        </ion-card>
-    </ion-card>
-    </ion-col>
-
 
 
       <ion-col *ngFor="let media of gallery_items" col-12 col-md-4>
-        <ion-card>
-          <img *ngIf=(media.url) [src]="media.url" />
-          <h2 *ngIf=(media.nick) id="h2Nick"> {{media.nick}} </h2>
-          <p id="pDesc"> {{media.description}} </p>
-          <p id="pUploadTime"> {{media.uploadTime}}</p>
-        </ion-card>
+        <!--<ion-card class="ramKort">-->
+          <ion-card class="imgKort">
+            <img *ngIf=(media.url) [src]="media.url" (click)="showPrompt()"/>
+
+              <div class="centerDivButtons">
+                <button ion-button class="socialButtons"><ion-icon name="star"></ion-icon></button>
+                <button ion-button class="socialButtons"><ion-icon name="thumbs-up"></ion-icon></button>
+                <button ion-button class="socialButtons"><ion-icon name="thumbs-down"></ion-icon></button>
+                <button ion-button class="socialButtons"><ion-icon name="share"></ion-icon></button>
+              </div>
+
+            <h2 *ngIf=(media.nick) id="h2Nick"> {{media.nick}} </h2>
+            <p id="pDesc"> {{media.description}} </p>
+            <p id="pUploadTime"> {{media.uploadTime}}</p>
+          </ion-card>
+
+
+
+      <!--  </ion-card>-->
       </ion-col>
-
-
-
-
 
 
 

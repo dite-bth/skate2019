@@ -1,13 +1,8 @@
 page-home {
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
-  ion-content{
-  //background: color($colors, dark)!important;
-  background-image: url("../assets/images/graybackground.jpg");
- }
+  ion-content{background-image: url("../assets/images/graybackground.jpg");}
 
- .centerDiv{
-   text-align: center !important;
- }
+ .centerDiv{text-align: center !important;}
 
  h1{
    font-family: "Montserrat" !important;
@@ -17,55 +12,86 @@ page-home {
    font-weight: bold;
  }
  h2{
-
+   font-family: "Montserrat" !important;
    text-align: center;
    font-size: 30px !important;
    color: black !important;
  }
 
  h3{
-
+   font-family: "Montserrat" !important;
    text-align: center;
    font-size: 25px !important;
    color: black !important;
    font-style: italic;
    font-weight: bold;
-
  }
 
 ion-card{
- box-shadow: 4px 4px 4px black !important;
+ //box-shadow: 4px 4px 4px black !important;
 }
 
-#ramKort{
-
-  text-align: center;
-  padding: 15%;
-  -webkit-clip-path: polygon(5% 2%, 98% 5%, 97% 95%, 10% 89%);
-  clip-path: polygon(5% 2%, 98% 5%, 97% 95%, 10% 89%);
+.ramKort{
+  margin: 0;
+  -webkit-clip-path: polygon(100% 0, 100% 52%, 100% 35%, 100% 100%, 0 100%, 0 45%, 28% 46%, 28% 22%, 62% 21%, 61% 0);
+  clip-path: polygon(100% 0, 100% 52%, 100% 35%, 100% 100%, 0 100%, 0 45%, 28% 46%, 28% 22%, 62% 21%, 61% 0);
 }
 
-#infokort{
-  font-family: "Montserrat" !important;
-  padding: 2% !important;
-  text-align: center;
-  font-size: 18px !important;
+.ramKort:hover{
+  margin: 0;
+  padding: 5%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+.imgKort{
+  width: 600px;
+  height: 300px;
+}
+
+.imgKort:hover{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  overflow: hidden;
+  box-shadow: 0 0 100px 10px #fff;
+  transition: all ease 0.3s;
+  box-shadow: 4px 4px 4px black !important;
+}
+
+
+
+
+.centerDivButtons{
+  font-size: 1.0em;
+  text-align: center !important;
+  right: auto;
+  color: #fff;
+}
+
+.socialButtons{
   color: black !important;
-}
-#infoButton{
-  font-family: "Montserrat" !important;
-  font-size: 20px;
+  background-color: #fff;
 }
 
 #h2Nick{
- font-weight: bold !important;
- text-decoration: underline;
+  font-family: "Montserrat" !important;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  color: black !important;
+  font-weight: bold !important;
+  text-decoration: underline;
 }
 #pDesc{
+  font-family: "Montserrat" !important;
   font-size: 20px;
   font-style: italic !important;
 }
 #pUploadTime{
+  font-family: "Montserrat" !important;
   padding-top: 40px;
   font-size: 12px !important;
 }
