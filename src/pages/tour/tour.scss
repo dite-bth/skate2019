@@ -4,7 +4,8 @@ page-tour {
         float: right;
     }
     ion-content {
-        background: color($colors, dark) !important;
+        background-image:url('../assets/img/skate.png') !important;
+        background-size: cover;
     }
     video {
         position: fixed;
@@ -126,7 +127,6 @@ page-tour {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
     }
-
     //MOBILE CSS
     @media screen and (min-width: 480px) {
         ion-col {
