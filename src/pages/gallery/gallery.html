@@ -24,11 +24,11 @@ Ionic pages and navigation.
       <ion-col *ngFor="let media of gallery_items" col-12 col-md-4>
         <!--<ion-card class="ramKort">-->
         <ion-card class="imgKort">
-        <!--  <div style="width:100px;height:100px">
+          <div style="width:100px;height:100px">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100" >
-              <path stroke-width="2" fill="#FF9F00" transform="rotate(0 50 50) scale(1.0)" d="randomSvgPath()" />
+              <path stroke-width="2" fill="#FF9F00" transform="rotate(0 50 50) scale(1.0)" attr.d={{shapes[media.shape]}} />
             </svg>
-          </div> -->
+          </div>
 
           <img *ngIf=(media.url) [src]="media.url" (click)="showPrompt()"/>
 
