@@ -37,10 +37,10 @@ public version: string = "0.5";
         for (var i=0;i<rows.length;i++){
           var temp = rows[i].doc;
           delete temp._rev;
-          if (typeof temp.uploadTime == 'number'){
-            var date = new Date(temp.uploadTime*1000);
-            temp.uploadTimeString = date.toLocaleFormat('%c');
-          }
+          //if (typeof temp.uploadTime == 'number'){
+            //var date = new Date(temp.uploadTime*1000);
+            //temp.uploadTimeString = date.toLocaleFormat('%c');
+          //}
           if (temp._attachments){
              temp.url = "http://nile16.nu:5984/media/"+temp._id+"/"+Object.keys(temp._attachments)[0];
              delete temp._attachments;
