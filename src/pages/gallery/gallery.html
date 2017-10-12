@@ -14,43 +14,34 @@ Ionic pages and navigation.
 </ion-header>
 
 
+<ion-content>
 
-<ion-content padding>
-  <ion-grid>
-    <ion-row>
-
+    <div class="imagesGrid">
 
 
-      <ion-col *ngFor="let media of gallery_items" col-12 col-md-4>
-        <!--<ion-card class="ramKort">-->
-        <ion-card class="imgKort">
-          <div style="width:100px;height:100px">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100" >
-              <path stroke-width="2" fill="#FF9F00" transform="rotate(0 50 50) scale(1.0)" attr.d={{shapes[media.shape]}} />
-            </svg>
-          </div>
+      <section class="imagesSection" *ngFor="let media of gallery_items" >
+        <ion-card class="imgKort" >
+         <img  [src]="media.url"  (click)="presentProfileModal()" />
+           <div class="centerDivButtons">
+             <button ion-button class="socialButtons"><ion-icon name="star"></ion-icon></button>
+             <button ion-button class="socialButtons"><ion-icon name="thumbs-up"></ion-icon></button>
+             <button ion-button class="socialButtons"><ion-icon name="thumbs-down"></ion-icon></button>
+             <button ion-button class="socialButtons"><ion-icon name="share"></ion-icon></button>
+           </div>
+           <h2 id="h2Nick" > {{media.nick}} </h2>
+           <p id="pDesc"> {{media.description}} </p>
+           <p id="pUploadTime"> {{ media.uploadTime }}</p>
+         </ion-card>
+       </section>
 
-          <img *ngIf=(media.url) [src]="media.url" (click)="showPrompt()"/>
+  </div>
 
-              <div class="centerDivButtons">
-                <button ion-button class="socialButtons"><ion-icon name="star"></ion-icon></button>
-                <button ion-button class="socialButtons"><ion-icon name="thumbs-up"></ion-icon></button>
-                <button ion-button class="socialButtons"><ion-icon name="thumbs-down"></ion-icon></button>
-                <button ion-button class="socialButtons"><ion-icon name="share"></ion-icon></button>
-              </div>
+      <!--
+        <ion-card class="ramKort">
+           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100" >
+             <path stroke-width="2" fill="#FF9F00" transform="rotate(0 50 50) scale(1.0)" attr.d={{shapes[media.shape]}} />
+           </svg>
+        </ion-card>
+      -->
 
-            <h2 *ngIf=(media.nick) id="h2Nick"> {{media.nick}} </h2>
-            <p id="pDesc"> {{media.description}} </p>
-            <p id="pUploadTime"> {{media.uploadTime}}</p>
-          </ion-card>
-
-
-
-      <!--  </ion-card>-->
-      </ion-col>
-
-
-
-    </ion-row>
-  </ion-grid>
 </ion-content>
