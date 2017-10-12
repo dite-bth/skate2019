@@ -27,6 +27,23 @@ public version: string = "0.5";
     xhrTag.send();
   }
 
+  getMediaTags(callback){
+    var xhrTag = new XMLHttpRequest();
+    xhrTag.open('GET', 'http://nile16.nu:5984/media/_all_docs?include_docs=true', true);
+    xhrTag.onreadystatechange = function(response) {
+      if (xhrTag.readyState == 4) {
+      var rows = JSON.parse(xhrTag.response).rows;
+      var result = [];
+      for (var i=0;i<rows.length;i++){
+        var temp = rows[i].doc.tags;
+        result.push(temp);
+      }
+      callback(result);
+      }
+    }
+    xhrTag.send();
+  }
+
   getMedia(callback){
     var xhrTag =  new XMLHttpRequest();
     xhrTag.open('GET', 'http://nile16.nu:5984/media/_all_docs?include_docs=true', true);
