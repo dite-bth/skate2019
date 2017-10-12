@@ -7,17 +7,12 @@ page-tour {
         background-image:url('../assets/img/skate.png') !important;
         background-size: cover;
     }
-    video {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -100;
-        transform: translateX(-50%) translateY(-50%);
+    #marker-malmoe {
+        position: relative!important;
+        left: -350px;
+        bottom: 20px;
     }
+
     h1 {
         margin: 0;
     }
@@ -114,10 +109,10 @@ page-tour {
         width: 100%;
         height: 100%;
     }
-   
+
     ion-card img {
         max-width: 100%;    
-        
+
         -moz-transition: all 0.3s;
         -webkit-transition: all 0.3s;
         transition: all 0.3s;
