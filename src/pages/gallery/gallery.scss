@@ -2,66 +2,56 @@ page-home {
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
   ion-content{background-image: url("../assets/images/graybackground.jpg");}
 
- .centerDiv{text-align: center !important;}
+  .centerDiv{text-align: center !important;}
 
- h1{
-   font-family: "Montserrat" !important;
-   text-align: center;
-   font-size: 25px !important;
-   color: white !important;
-   font-weight: bold;
- }
- h2{
-   font-family: "Montserrat" !important;
-   text-align: center;
-   font-size: 30px !important;
-   color: black !important;
- }
+  h1{
+    font-family: "Montserrat" !important;
+    text-align: center;
+    font-size: 25px !important;
+    color: white !important;
+    font-weight: bold;
+  }
+  h2{
+    font-family: "Montserrat" !important;
+    text-align: center;
+    font-size: 30px !important;
+    color: black !important;
+  }
 
- h3{
-   font-family: "Montserrat" !important;
-   text-align: center;
-   font-size: 25px !important;
-   color: black !important;
-   font-style: italic;
-   font-weight: bold;
- }
+  h3{
+    font-family: "Montserrat" !important;
+    text-align: center;
+    font-size: 25px !important;
+    color: black !important;
+    font-style: italic;
+    font-weight: bold;
+  }
 
-ion-card{
- //box-shadow: 4px 4px 4px black !important;
+
+  /*
+  .ramKort{
+  width: 300px;
+  height: 400px;
+  position: relative;
+}
+*/
+
+.imagesGrid{
+  padding: 10px;
+  -webkit-column-count: 3;
+  -webkit-column-gap:   0px !important;
+  -moz-column-count:    3;
+  -moz-column-gap:      0px !important;
+  column-count:         3;
+  column-gap:           0px !important;
 }
 
-.ramKort{
-  margin: 0;
-  -webkit-clip-path: polygon(100% 0, 100% 52%, 100% 35%, 100% 100%, 0 100%, 0 45%, 28% 46%, 28% 22%, 62% 21%, 61% 0);
-  clip-path: polygon(100% 0, 100% 52%, 100% 35%, 100% 100%, 0 100%, 0 45%, 28% 46%, 28% 22%, 62% 21%, 61% 0);
+.imagesSection img {
+  padding: 10px;
 }
-
-.ramKort:hover{
-  margin: 0;
-  padding: 5%;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-
-
 .imgKort{
-  width: 600px;
-  height: 300px;
+
 }
-
-.imgKort:hover{
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  overflow: hidden;
-  box-shadow: 0 0 100px 10px #fff;
-  transition: all ease 0.3s;
-  box-shadow: 4px 4px 4px black !important;
-}
-
-
-
 
 .centerDivButtons{
   font-size: 1.0em;
@@ -71,9 +61,17 @@ ion-card{
 }
 
 .socialButtons{
+  font-size: 20px;
   color: black !important;
-  background-color: #fff;
+  background: color($colors, hiding);
+  -webkit-box-shadow: none;
 }
+.socialButtons:hover{
+  background-color:  #222 !important;
+  color: white !important;
+}
+
+
 
 #h2Nick{
   font-family: "Montserrat" !important;
@@ -86,15 +84,53 @@ ion-card{
   text-decoration: underline;
 }
 #pDesc{
+  padding-left: 10px;
   font-family: "Montserrat" !important;
   font-size: 20px;
   font-style: italic !important;
 }
 #pUploadTime{
+  padding-left: 10px;
   font-family: "Montserrat" !important;
   padding-top: 40px;
   font-size: 12px !important;
 }
+
+
+
+
+
+
+/*
+
+.imgKort{
+
+}
+
+.imgKort:hover{
+height: 100%;
+width: 100%;
+background-size: cover;
+overflow: hidden;
+box-shadow: 0 0 100px 10px #fff;
+transition: all ease 0.3s;
+box-shadow: 4px 4px 4px black !important;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
