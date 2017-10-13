@@ -143,9 +143,10 @@ public version: string = "0.5";
             fileReader.readAsArrayBuffer(file);
           }
         }
-        meta.uploadTime = Math.floor((new Date().getTime())/1000);
         //meta.uploadTime = (new Date()).toString();
-        meta.status=0;
+        meta.uploadTime = Math.floor((new Date().getTime())/1000);
+        meta.status = 0;
+        meta.views  = 0;
         xhr1.send(JSON.stringify(meta));
       });
     }
