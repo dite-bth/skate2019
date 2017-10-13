@@ -28,22 +28,26 @@ page-home {
   }
 
 
-  /*
-  .ramKort{
-  width: 300px;
-  height: 400px;
-  position: relative;
+
+
+ion-card{
+  -webkit-box-shadow: 0 0 10px #000 !important;
+        -moz-box-shadow: 0 0 10px #000 !important;
 }
-*/
 
 .imagesGrid{
   padding: 10px;
+  -webkit-columns: 400px 4;
+   -moz-columns: 400px 4;
+        columns: 400px 4;
+
+  /*padding: 10px;
   -webkit-column-count: 3;
   -webkit-column-gap:   0px !important;
   -moz-column-count:    3;
   -moz-column-gap:      0px !important;
   column-count:         3;
-  column-gap:           0px !important;
+  column-gap:           0px !important;*/
 }
 
 .imagesSection img {
