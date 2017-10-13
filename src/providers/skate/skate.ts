@@ -56,7 +56,7 @@ public version: string = "0.5";
           delete temp._rev;
           if (typeof temp.uploadTime == 'number'){
             var date = new Date(temp.uploadTime*1000);
-            temp.uploadTimeString = date.toLocaleDateString();
+            temp.uploadTimeString = date.toLocaleDateString('se',{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",});
           }
           if (temp._attachments){
              temp.url = "http://nile16.nu:5984/media/"+temp._id+"/"+Object.keys(temp._attachments)[0];
