@@ -56,8 +56,7 @@ public version: string = "0.5";
           delete temp._rev;
           if (typeof temp.uploadTime == 'number'){
             var date = new Date(temp.uploadTime*1000);
-            // The type script shit throws an error if the form date.toLocaleString is used
-            temp.toLocaleDateString = date['toLocaleFormat']('%c');
+            temp.uploadTimeString = date.toLocaleDateString();
           }
           if (temp._attachments){
              temp.url = "http://nile16.nu:5984/media/"+temp._id+"/"+Object.keys(temp._attachments)[0];
