@@ -14,6 +14,7 @@ import { EditorPage } from '../pages/editor/editor';
 import { SkateProvider } from '../providers/skate/skate';
 import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ModalContentPage } from '../pages/tour/pages';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SkateProvider
+    SkateProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}

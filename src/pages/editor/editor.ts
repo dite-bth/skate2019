@@ -3,6 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 import { EditorGalleryModalPage } from '../editor/editor-gallery-modal';
+import { AuthProvider } from '../../providers/auth/auth';
 
 
 
@@ -15,7 +16,7 @@ export class EditorPage {
   tags: any;
   gallery_items: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController, public auth: AuthProvider) {
     this.skate.getWhiteListedTags((tags) => {
       this.tags = tags;
     })
@@ -64,11 +65,11 @@ export class EditorPage {
     galleryModal.present();
   }
 
-  saveGalleryItem(item) {
-    /*
-      Database stuff here
-     */
-    console.log("saveGalleryItem");
-    console.log(item);
+  logout() {
+    this.auth.signOut().then(() => {
+      this.navCtrl.pop();
+    }).catch((reason) => {
+      console.log(reason);
+    });
   }
 }
