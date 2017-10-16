@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { GalleryPage } from '../gallery/gallery';
 import { TourPage} from '../tour/tour';
 import { EditorPage} from '../editor/editor';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +12,7 @@ import { EditorPage} from '../editor/editor';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public auth: AuthProvider, public alertCtrl: AlertController) {
 
   }
 
@@ -26,5 +28,51 @@ export class HomePage {
     this.navCtrl.push(EditorPage);
   }
 
+  ionViewDidLoad() {
+    this.auth.expired().then(() => {
+      this.navCtrl.push(EditorPage);
+    }).catch((reason) => {
+      console.log(reason);
+    });
+  }
 
+  presentLoginPrompt() {
+    const loginPrompt = this.alertCtrl.create({
+      message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'e-post',
+          type: 'email'
+        },
+        {
+          name: 'password',
+          placeholder: 'Lösenord',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Logga in',
+          handler: (user) => {
+            this.login(user);
+          }
+        }
+      ]
+    });
+    loginPrompt.present();
+  };
+
+  login(user) {
+    this.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
+      this.navCtrl.push(EditorPage);
+    }).catch((reason) => {
+      console.log(reason);
+      const errorPrompt = this.alertCtrl.create({
+        message: reason,
+        buttons: ['OK'],
+      });
+      errorPrompt.present();
+    });
+  }
 }

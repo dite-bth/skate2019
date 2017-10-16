@@ -18,7 +18,6 @@ Ionic pages and navigation.
 
     <div class="imagesGrid">
 
-
       <section class="imagesSection" *ngFor="let media of gallery_items" >
         <ion-card class="imgKort" >
          <img  [src]="media.url"  (click)="presentProfileModal()" />
@@ -30,7 +29,7 @@ Ionic pages and navigation.
            </div>
            <h2 id="h2Nick" > {{media.nick}} </h2>
            <p id="pDesc"> {{media.description}} </p>
-           <p id="pUploadTime"> {{ media.uploadTime }}</p>
+           <p id="pUploadTime"> {{ media.uploadTimeString }}</p>
          </ion-card>
        </section>
 
