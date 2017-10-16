@@ -16,6 +16,7 @@ import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
 import { TagsPage} from '../pages/tags/tags';
 import { AuthProvider } from '../providers/auth/auth';
+import { MapPage } from '../pages/map/map'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AuthProvider } from '../providers/auth/auth';
     EditorPage,
     EditorGalleryModalPage,
     ModalContentPage,
-    TagsPage
+    TagsPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { AuthProvider } from '../providers/auth/auth';
     EditorPage,
     EditorGalleryModalPage,
     ModalContentPage,
-    TagsPage
+    TagsPage,
+    MapPage
   ],
   providers: [
     StatusBar,
