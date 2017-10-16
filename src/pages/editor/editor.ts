@@ -3,6 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 import { EditorGalleryModalPage } from '../editor/editor-gallery-modal';
+import { TagsPage} from '../tags/tags';
 
 
 
@@ -12,21 +13,22 @@ import { EditorGalleryModalPage } from '../editor/editor-gallery-modal';
 })
 export class EditorPage {
 
-  tags: any;
   gallery_items: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController) {
-    this.skate.getWhiteListedTags((tags) => {
-      this.tags = tags;
-    })
 
     this.skate.getMedia((items) => {
       this.gallery_items = items;
     })
 
+
     //this.skate.editMedia("5f4f2c68594976ce99c32f1f830349f5",{status:1,nick:"sk8 kiddo"},(res) => {
     //  console.log("got:",res);
     //})
+  }
+
+  showTags(){
+    this.navCtrl.push(TagsPage);
   }
 
   showPrompt() {

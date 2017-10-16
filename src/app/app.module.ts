@@ -14,6 +14,7 @@ import { EditorPage } from '../pages/editor/editor';
 import { SkateProvider } from '../providers/skate/skate';
 import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
+import { TagsPage} from '../pages/tags/tags';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ModalContentPage } from '../pages/tour/pages';
     UploadPage,
     EditorPage,
     EditorGalleryModalPage,
-    ModalContentPage
+    ModalContentPage,
+    TagsPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { ModalContentPage } from '../pages/tour/pages';
     UploadPage,
     EditorPage,
     EditorGalleryModalPage,
-    ModalContentPage
+    ModalContentPage,
+    TagsPage
   ],
   providers: [
     StatusBar,

@@ -29,9 +29,10 @@
 
   <rl-tag-input
   [(ngModel)]="tags"
-  [addOnEnter]="false"
+  [addOnBlur]="false"
   [autocomplete]="true"
   [autocompleteItems]="preparedTags"
+  [autocompleteMustMatch]="false"
   placeholder="Tags">
   </rl-tag-input>
 

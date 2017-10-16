@@ -45,7 +45,6 @@ export class UploadPage {
 
 }
 
-
 // This function is executed when the upload button is pressed
 uploadFile(){
   var meta = {
@@ -58,6 +57,8 @@ uploadFile(){
   for (var i=0;i<this.tags.length;i++){
     if (this.tags[i]) meta.tags.push(this.tags[i]);
   }
+
+
 
   //meta.nick = nick.value.trim();
   meta.nick = this.nick.trim();
@@ -75,34 +76,6 @@ uploadFile(){
     });
     alert.present();
   this.navCtrl.pop();
-}
-
-addTags() {
-let prompt = this.alertCtrl.create({
-  title: 'Lägg till egna taggar',
-  message: "Här kan du lägga till taggar som du tycker ska vara med på utställningen och hemsidan!",
-  inputs: [
-    {
-      name: 'Tagg',
-      placeholder: 'Enter Tag here'
-    },
-  ],
-  buttons: [
-    {
-      text: 'Cancel',
-      handler: data => {
-        console.log('Cancel clicked');
-      }
-    },
-    {
-      text: 'Save',
-      handler: data => {
-        console.log('Saved clicked');
-      }
-    }
-  ]
-});
-prompt.present();
 }
 
 }
