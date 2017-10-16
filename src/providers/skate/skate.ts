@@ -5,7 +5,7 @@ declare var JpegMeta;
 @Injectable()
 export class SkateProvider {
 
-public version: string = "0.5";
+public version: string = "0.7";
 
 
   constructor() {
@@ -173,6 +173,32 @@ public version: string = "0.5";
               callback(xhr2.response);
             }
           }
+          xhr2.send(JSON.stringify(doc));
+        }
+      }
+      xhr1.send();
+    }
+
+    incMediaViewCount(docId,callback) {
+      var url = 'http://nile16.nu:5984/media/';
+      var xhr1 =  new XMLHttpRequest();
+      xhr1.open('GET', url+docId, true);
+      xhr1.setRequestHeader("Content-Type", "application/json");
+      xhr1.onreadystatechange = function(response) {
+        if (xhr1.readyState == 4) {
+          var doc = JSON.parse(xhr1.response);
+          if(doc.error){
+            console.log("incMediaViewCount Error: ",doc.error);
+            return(1);
+          }
+          delete doc._id;
+          if (doc.views)
+            doc.views = doc.views + 1;
+          else
+            doc.views = 1;
+          var xhr2 = new XMLHttpRequest();
+          xhr2.open('PUT', url+docId, true);
+          xhr2.setRequestHeader("Content-Type", "application/json");
           xhr2.send(JSON.stringify(doc));
         }
       }
