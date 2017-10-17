@@ -115,6 +115,26 @@ public version: string = "0.7";
     		fileReaderExif.readAsBinaryString(file);
     	}
 
+    getUsers(callback){
+      var xhrTag = new XMLHttpRequest();
+      xhrTag.open('GET', 'http://nile16.nu:5984/users/_all_docs?include_docs=true', true);
+      xhrTag.onreadystatechange = function(response) {
+        if (xhrTag.readyState == 4) {
+          var rows = JSON.parse(xhrTag.response).rows;
+          var result = [];
+          for (var i=0;i<rows.length;i++){
+            var temp = {
+              email: rows[i].doc.email,
+              password: rows[i].doc.password
+            };
+            result.push(temp);
+          }
+          callback(result);
+        }
+      }
+      xhrTag.send();
+    };
+
     uploadMedia(file,meta,callback) {
       this.getExif(file,(exif) => {
         Object.assign(meta,exif);

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {SkateProvider} from "../skate/skate";
 import 'rxjs/add/operator/map';
 
 /*
@@ -10,7 +11,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthProvider {
 
-  constructor() {
+  users: any;
+
+  constructor(public skate: SkateProvider) {
+    this.skate.getUsers((users) => {
+      this.users = users;
+    });
   }
 
   signInWithEmailAndPassword(email, password) {
@@ -20,12 +26,17 @@ export class AuthProvider {
     return new Promise((resolve, reject) => {
       const msg = this.validateForm(email, password);
       if(msg) {reject(msg)};
-
       /*
        Compare credentials with accounts in db.
+       Hash?
        */
+      this.users.map(function(user) {
+        if(email === user.email && password == user.password) {
+          resolve('Logged in.');
+        };
+      });
       sessionStorage.setItem('currentUser', JSON.stringify({email: email, expire: date}));
-      resolve();
+      reject('User does not exist.');
     })
   };
 
