@@ -22,12 +22,11 @@ export class TagsPage {
     this.tags = tag;
   });
 
-  this.unlisted_tags = [];
   this.temp = [];
   }
 
 
-  compareTags() {
+  blacklistTags() {
     for (let i = 0; i < this.mediatags.length; i++) {
       for (let j = 0; j < this.mediatags[i].length; j++) {
         this.temp.push(this.mediatags[i][j]); // pushar resultat från loop till en temporär array
@@ -38,7 +37,6 @@ export class TagsPage {
     if (a.indexOf(b) < 0 ) a.push(b);
     return a;
   },[]); //tom array blir starting value för a
-    console.log(uniq);
-    console.log(this.tags.sort());
+    this.unlisted_tags = uniq.filter(x => this.tags.indexOf(x) == -1) //jämför uniq array med this tags array, unlisted_tags blir en "blacklist" arr
   }
 }
