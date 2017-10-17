@@ -3,6 +3,9 @@ import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 import { UploadPage } from '../upload/upload';
+import { AuthProvider } from '../../providers/auth/auth';
+import { EditorPage} from '../editor/editor';
+
 
 
 
@@ -24,6 +27,7 @@ export class GalleryPage {
     public alertCtrl: AlertController,
     public skate:SkateProvider,
     public modalCtrl: ModalController,
+    public auth: AuthProvider,
     params: NavParams) {
 
       this.skate.getMedia((media)=>{
@@ -48,11 +52,44 @@ export class GalleryPage {
    const profileModal = this.modalCtrl.create(GalleryPage, {media} );
    profileModal.present();
  }
+  presentLoginPrompt() {
+    const loginPrompt = this.alertCtrl.create({
+      message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'e-post',
+          type: 'email'
+        },
+        {
+          name: 'password',
+          placeholder: 'Lösenord',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Logga in',
+          handler: (user) => {
+            this.login(user);
+          }
+        }
+      ]
+    });
+    loginPrompt.present();
+  };
 
-
-
-
-
-
-
+  login(user) {
+    this.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
+      this.navCtrl.push(EditorPage);
+    }).catch((reason) => {
+      console.log(reason);
+      const errorPrompt = this.alertCtrl.create({
+        message: reason,
+        buttons: ['OK'],
+      });
+      errorPrompt.present();
+    });
+  }
 }
+

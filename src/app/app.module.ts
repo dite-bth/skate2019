@@ -17,6 +17,8 @@ import { ModalContentPage } from '../pages/tour/pages';
 import { TagsPage} from '../pages/tags/tags';
 import { AuthProvider } from '../providers/auth/auth';
 import { MapPage } from '../pages/map/map'
+import { TabsPage } from '../pages/tabs/tabs';
+import { InfoPage } from '../pages/info/info';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { MapPage } from '../pages/map/map'
     EditorGalleryModalPage,
     ModalContentPage,
     TagsPage,
-    MapPage
+    MapPage,
+    TabsPage,
+    InfoPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { MapPage } from '../pages/map/map'
     EditorGalleryModalPage,
     ModalContentPage,
     TagsPage,
-    MapPage
+    MapPage,
+    TabsPage,
+    InfoPage
   ],
   providers: [
     StatusBar,

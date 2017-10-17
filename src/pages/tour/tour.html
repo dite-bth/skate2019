@@ -131,4 +131,12 @@ Ionic pages and navigation.
     </ion-content>
 </ion-menu>
 
+<ion-footer>
+  <ion-toolbar color="dark">
+        <div class="right">
+            <button ion-button clear (click)="presentLoginPrompt()">Logga in</button>
+        </div>
+  </ion-toolbar>
+</ion-footer>
+
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
