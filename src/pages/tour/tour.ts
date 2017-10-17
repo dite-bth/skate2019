@@ -4,6 +4,7 @@ import { SkateProvider } from '../../providers/skate/skate';
 
 import { ModalController} from 'ionic-angular';
 import { ModalContentPage } from '../tour/pages';
+import { MapPage } from '../map/map';
 /**
  * Generated class for the TourPage page.
  *
@@ -26,6 +27,9 @@ export class TourPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad TourPage');
+    }
+    showMap(){
+        this.navCtrl.push(MapPage);
     }
     openModal(characterNum) {
 
