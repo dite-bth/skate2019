@@ -2,4 +2,10 @@ page-map {
     #map {
         height: 100%;
     }
+    .gmnoprint a, .gmnoprint span {
+        display:none;
+    }
+    .gmnoprint div {
+        background:none !important;
+    }
 }
