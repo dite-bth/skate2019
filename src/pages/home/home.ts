@@ -14,8 +14,14 @@ import { SkateProvider } from '../../providers/skate/skate';
 })
 export class HomePage {
 
+  landingPagePicture:any;
+  landingPageText:any;
+
   constructor(public navCtrl: NavController, public auth: AuthProvider, public alertCtrl: AlertController, public skate:SkateProvider) {
-    this.skate.getLandingPageData(function(data){console.log(data)});
+    this.skate.getLandingPageData((data) => {
+      this.landingPagePicture = data.picture;
+      this.landingPageText    = data.text;
+    });
   }
 
   showGallery(){
