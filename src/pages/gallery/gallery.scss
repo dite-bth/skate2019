@@ -2,166 +2,25 @@ page-home {
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
   ion-content{background-image: url("../assets/images/graybackground.jpg");}
 
-  .centerDiv{text-align: center !important;}
+/* Image collage. */
+.images {
+  padding: 5px;
 
-  h1{
-    font-family: "Montserrat" !important;
-    text-align: center;
-    font-size: 25px !important;
-    color: white !important;
-    font-weight: bold;
-  }
-  h2{
-    font-family: "Montserrat" !important;
-    text-align: center;
-    font-size: 30px !important;
-    color: black !important;
-  }
-
-  h3{
-    font-family: "Montserrat" !important;
-    text-align: center;
-    font-size: 25px !important;
-    color: black !important;
-    font-style: italic;
-    font-weight: bold;
-  }
-
-
-
-
-ion-card{
-  -webkit-box-shadow: 0 0 10px #000 !important;
-  -moz-box-shadow: 0 0 10px #000 !important;
-}
-
-
-
-.imagesGrid {
-  padding: 20px;
+  /* Prevent vertical gaps. */
   line-height: 0;
-  -webkit-column-count: 3;
-  -webkit-column-gap:   0px !important;
-  -moz-column-count:    3;
-  -moz-column-gap:      0px !important;
-  column-count:         3;
-  column-gap:           0px !important;
+   
+  -webkit-column-count: 4;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    4;
+  -moz-column-gap:      0px;
+  column-count:         4;
+  column-gap:           0px;  
 }
 
-
-@media (max-width: 600px){
-  .imagesGrid{
-    padding: 10px;
-    -webkit-column-count: 1;
-    -webkit-column-gap:   0px !important;
-    -moz-column-count:    1;
-    -moz-column-gap:      0px !important;
-    column-count:         1;
-    column-gap:           0px !important;
-  }
+.images img {
+  /* Just in case there are inline attributes. */
+  width: 100% !important;
+  height: auto !important;
+  padding: 5px;
 }
-
-
-
-
-
-
-
-
-.imagesSection img {
-  padding: 10px;
-}
-.imgKort{
-
-}
-
-.centerDivButtons{
-  font-size: 1.0em;
-  text-align: center !important;
-  right: auto;
-  color: #fff;
-}
-
-.socialButtons{
-  font-size: 20px;
-  color: black !important;
-  background: color($colors, hiding);
-  -webkit-box-shadow: none;
-}
-.socialButtons:hover{
-  background-color:  #222 !important;
-  color: white !important;
-}
-
-
-
-#h2Nick{
-  font-family: "Montserrat" !important;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  color: black !important;
-  font-weight: bold !important;
-  text-decoration: underline;
-}
-#pDesc{
-  padding-left: 10px;
-  font-family: "Montserrat" !important;
-  font-size: 20px;
-  font-style: italic !important;
-}
-#pUploadTime{
-  padding-left: 10px;
-  font-family: "Montserrat" !important;
-  padding-top: 40px;
-  font-size: 12px !important;
-}
-
-
-
-
-
-
-/*
-
-.imgKort{
-
-}
-
-.imgKort:hover{
-height: 100%;
-width: 100%;
-background-size: cover;
-overflow: hidden;
-box-shadow: 0 0 100px 10px #fff;
-transition: all ease 0.3s;
-box-shadow: 4px 4px 4px black !important;
-}
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
