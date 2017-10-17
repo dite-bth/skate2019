@@ -32,23 +32,41 @@ page-home {
 
 ion-card{
   -webkit-box-shadow: 0 0 10px #000 !important;
-        -moz-box-shadow: 0 0 10px #000 !important;
+  -moz-box-shadow: 0 0 10px #000 !important;
 }
 
-.imagesGrid{
-  padding: 10px;
-  -webkit-columns: 400px 4;
-   -moz-columns: 400px 4;
-        columns: 400px 4;
 
-  /*padding: 10px;
+
+.imagesGrid {
+  padding: 20px;
+  line-height: 0;
   -webkit-column-count: 3;
   -webkit-column-gap:   0px !important;
   -moz-column-count:    3;
   -moz-column-gap:      0px !important;
   column-count:         3;
-  column-gap:           0px !important;*/
+  column-gap:           0px !important;
 }
+
+
+@media (max-width: 600px){
+  .imagesGrid{
+    padding: 10px;
+    -webkit-column-count: 1;
+    -webkit-column-gap:   0px !important;
+    -moz-column-count:    1;
+    -moz-column-gap:      0px !important;
+    column-count:         1;
+    column-gap:           0px !important;
+  }
+}
+
+
+
+
+
+
+
 
 .imagesSection img {
   padding: 10px;

@@ -28,6 +28,9 @@ export class GalleryPage {
 
       this.skate.getMedia((media)=>{
         this.gallery_items = media;
+        media.sort(function(a,b){
+          return b.uploadTime - a.uploadTime
+        });
         // Thanks to retarded angular, random shapes can not be inserted direct in HTML, but rather has to be stored first. See:
         // https://stackoverflow.com/questions/43079990/angular-2-expression-has-changed-after-it-was-checked-error-with-dynamic-image
         for (let i=0;i<this.gallery_items.length;i++) this.gallery_items[i].shape = Math.floor(Math.random() * this.shapes.length);
@@ -45,6 +48,7 @@ export class GalleryPage {
    const profileModal = this.modalCtrl.create(GalleryPage, {media} );
    profileModal.present();
  }
+
 
 
 
