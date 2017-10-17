@@ -12,6 +12,7 @@ export class TagsPage {
   tags: any;
   mediatags: any;
   unlisted_tags: any;
+  temp: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public skate: SkateProvider) {
   this.skate.getMediaTags((items)=>{
@@ -22,53 +23,22 @@ export class TagsPage {
   });
 
   this.unlisted_tags = [];
-
+  this.temp = [];
   }
 
 
   compareTags() {
-    let arr = [];
     for (let i = 0; i < this.mediatags.length; i++) {
       for (let j = 0; j < this.mediatags[i].length; j++) {
-        console.log(this.mediatags[i][j]);
-
+        this.temp.push(this.mediatags[i][j]); // pushar resultat från loop till en temporär array
       }
     }
-
+    let uniqueArray = this.temp.sort();  //sortera array i bokstavsordning
+    let uniq = uniqueArray.reduce(function(a,b){  // ta bort dubbletter
+    if (a.indexOf(b) < 0 ) a.push(b);
+    return a;
+  },[]); //tom array blir starting value för a
+    console.log(uniq);
+    console.log(this.tags.sort());
   }
-    //for (let i = 0; i < this.mediatags.length; i ++) {
-    //  console.log(this.mediatags[i]);
-
-  //  }
-  //  var temp = arr.concat(item);
-  //    console.log(temp);
-
-    //this.arr.push(temp);
-    //console.log(this.arr);
-    //this.arr.push(item);
-    //console.log(this.arr);
-
-  //  });
-  //this.arr.push(temp);
-  //console.log(this.arr);
-  //  console.log(item);
-  //console.log(value);
-//  var temp = value.concat(arr);
-  //console.log(arr);
-  //var temp = arr.concat(value);
-
-//  console.log(temp);
-      //console.log(arr);
-
-
-//  });
-//  var mySet = new Set();
-//  mySet.add(item.value);
-  // console.log(mySet);
-//}
-
-    //console.log(item);
-    //console.log(this.tags);
-
-
 }
