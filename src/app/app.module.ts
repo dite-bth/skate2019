@@ -19,6 +19,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { MapPage } from '../pages/map/map'
 import { TabsPage } from '../pages/tabs/tabs';
 import { InfoPage } from '../pages/info/info';
+import { TagsModalPage } from '../pages/tags/tags-modal';
 
 
 @NgModule({
@@ -34,7 +35,9 @@ import { InfoPage } from '../pages/info/info';
     TagsPage,
     MapPage,
     TabsPage,
-    InfoPage
+    InfoPage,
+    TagsModalPage
+
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { InfoPage } from '../pages/info/info';
     TagsPage,
     MapPage,
     TabsPage,
-    InfoPage
+    InfoPage,
+    TagsModalPage
   ],
   providers: [
     StatusBar,

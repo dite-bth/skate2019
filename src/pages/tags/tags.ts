@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ModalController,NavController, NavParams } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
+import { TagsModalPage } from '../tags/tags-modal';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class TagsPage {
   unlisted_tags: any;
   temp: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public skate: SkateProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public skate: SkateProvider, public modalCtrl: ModalController) {
   this.skate.getMediaTags((items)=>{
     this.mediatags = items;
   });
@@ -25,6 +27,12 @@ export class TagsPage {
   this.temp = [];
   }
 
+  blacklistModal(unlisted_tags) {
+  //console.log(this.unlisted_tags);
+
+    const tagsModal = this.modalCtrl.create(TagsModalPage, {unlisted_tags});
+    tagsModal.present();
+  }
 
   blacklistTags() {
     for (let i = 0; i < this.mediatags.length; i++) {
@@ -38,5 +46,6 @@ export class TagsPage {
     return a;
   },[]); //tom array blir starting value för a
     this.unlisted_tags = uniq.filter(x => this.tags.indexOf(x) == -1) //jämför uniq array med this tags array, unlisted_tags blir en "blacklist" arr
+  //  console.log(this.unlisted_tags);
   }
 }
