@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalController,NavController, NavParams } from 'ionic-angular';
-import { ModalController, NavController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 import { TagsModalPage } from '../tags/tags-modal';
 

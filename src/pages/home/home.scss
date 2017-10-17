@@ -1,49 +1,57 @@
 page-home {
-
-  .right {
-    float: right;
-  }
-  button {
-    position: absolute;
-  }
-  #parallelogram {
-    width: 550px;
-    height: 400px;
-    -webkit-clip-path: polygon(71% 0, 100% 26%, 100% 100%, 23% 100%, 1% 73%, 0 0);
-    clip-path: polygon(71% 0, 100% 26%, 100% 100%, 23% 100%, 1% 73%, 0 0);
-    background: color($colors, dark-green);
-    padding: 50px;
-
-  }
-
-  .dark {
-    background-color: #262626;
-  }
   ion-content {
     background-image: url("http://skekzi.com/wp-content/uploads/2016/01/LT_WhiteGrunge_05.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .para {
-    transform: none !important;
-    font-family: 'Source Sans Pro';
-    color: white;
+
+  ion-col {
+    padding: 0 !important;
   }
-  .header {
-    transform: none !important;
 
-
-
+  ion-grid {
+    padding: 20px !important;
   }
-  .subheader {
-    transform: none !important;
-    font-family: 'Source Sans Pro';
 
+  .title {
+    font-family: "Source Sans Pro" !important;
+    color: #000 !important;
+    text-align: left;
+    text-decoration: underline; 
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  
+  .parallelogram {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    background: color($colors, dark-green);
+    z-index: 1;
+  }
 
+  .parallelogram h1 {
+    font-family: "Source Sans Pro" !important;
+    text-align: left;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    color: #000 !important;
   }
-  #square {
-    background: color($colors, secondary) !important;
-    width: 500px;
-    height: 150px;
-  }
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .right {
+      float: right;
+    }
+    .dark {
+      background-color: #262626;
+    }
 }
