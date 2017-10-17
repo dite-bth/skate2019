@@ -5,6 +5,8 @@ import { TourPage} from '../tour/tour';
 import { EditorPage} from '../editor/editor';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AlertController } from 'ionic-angular';
+import { SkateProvider } from '../../providers/skate/skate';
+
 
 @Component({
   selector: 'page-home',
@@ -12,8 +14,8 @@ import { AlertController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public auth: AuthProvider, public alertCtrl: AlertController) {
-
+  constructor(public navCtrl: NavController, public auth: AuthProvider, public alertCtrl: AlertController, public skate:SkateProvider) {
+    this.skate.getLandingPageData(function(data){console.log(data)});
   }
 
   showGallery(){

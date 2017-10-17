@@ -16,6 +16,17 @@ public version: string = "0.7";
       return number[0].num/number[0].den + (number[1].num/(60 * number[1].den)) + (number[2].num/(3600 * number[2].den));
     };
 
+  getLandingPageData(callback){
+    var xhrTag =  new XMLHttpRequest();
+    xhrTag.open('GET', 'http://nile16.nu:5984/misc/landingPageData', true);
+    xhrTag.onreadystatechange = function(response) {
+      if (xhrTag.readyState == 4) {
+        callback(JSON.parse(xhrTag.response));
+       }
+    }
+    xhrTag.send();
+  }
+
   getWhiteListedTags(callback){
     var xhrTag =  new XMLHttpRequest();
     xhrTag.open('GET', 'http://nile16.nu:5984/misc/tags', true);

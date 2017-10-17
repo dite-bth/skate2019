@@ -14,9 +14,11 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class EditorPage {
 
   gallery_items: any;
-  tags: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController, public auth: AuthProvider) {
+    this.skate.getWhiteListedTags((tags) => {
+
+    })
 
     this.skate.getMedia((items) => {
       this.gallery_items = items;
