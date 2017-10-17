@@ -3,8 +3,14 @@ page-tour {
     .right {
         float: right;
     }
+    ion-card {
+        box-shadow: 10px 10px 10px #000000 !important;
+        margin-top:0px !important;
+        margin-bottom:0px !important;
+        margin-left: 0px !important
+    }
     ion-content {
-        background-image:url('../assets/img/skate.png') !important;
+        background-image:url('../assets/img/concrete.jpg') !important;
         background-size: cover;
     }
     #marker-malmoe {

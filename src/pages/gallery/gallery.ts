@@ -41,6 +41,7 @@ export class GalleryPage {
   }
 
   presentProfileModal(media) {
+   //this.skate.incMediaViewCount("5f4f2c68594976ce99c32f1f8300e0a9");
    const profileModal = this.modalCtrl.create(GalleryPage, {media} );
    profileModal.present();
  }
