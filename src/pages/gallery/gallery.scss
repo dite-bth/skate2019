@@ -1,6 +1,13 @@
-page-home {
-  @import url('https://fonts.googleapis.com/css?family=Montserrat');
-  ion-content{background-image: url("../assets/images/graybackground.jpg");}
+page-gallery {
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+ion-content {
+    background-image: url("http://skekzi.com/wp-content/uploads/2016/01/LT_WhiteGrunge_05.jpg");
+
+.container {
+    padding: 5px !important;
+    margin: 0 !important;
+}
 
 /* Image collage. */
 .images {
@@ -38,11 +45,7 @@ page-home {
   }
 }
 
-
-
-
-
-
+/* Hover and heart stuff. */
 .nd-wrap {
     overflow: hidden;
     text-align: center;

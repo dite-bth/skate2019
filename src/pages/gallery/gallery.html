@@ -1,10 +1,10 @@
 <ion-content>
-  <div style="text-align: center; margin-top: 10px;">
+  <div style="margin-top: 5px; margin-left: 5px;">
     <button ion-button color="secondary" (click)="uploadPageModal()">Bidra!</button>
   </div>
 
-
-      <!-- Code for the shade effect with popup heart on every img  -->
+  <div class="container">
+      <!-- Code for the shade effect with pop-up heart on every image. -->
       <div class="nd-wrap nd-style-1" *ngFor="let media of gallery_items">
             <img [src]="media.url">
           <div class="nd-content">
@@ -12,13 +12,13 @@
                   <div class="nd-content_inner1">
                       <h3 class="nd-title">{{incMediaViewCount}}</h3>
                       <span class="nd-icon">
-                          <ion-icon color=danger name="heart"></ion-icon>
+                          <ion-icon color=danger name="heart-outline"></ion-icon>
                       </span>
                   </div>
               </div>
           </div>
       </div>
-
+    </div>
 
   <!--
     <section class="images">
