@@ -3,15 +3,26 @@
     <button ion-button color="secondary" (click)="uploadPageModal()">Bidra!</button>
   </div>
 
-    <section class="images">
-        <img *ngFor="let media of gallery_items" [src]="media.url">
-      </section>
-</ion-content>
 
-<ion-footer>
-  <ion-toolbar color="dark">
-        <div class="right">
-            <button ion-button clear (click)="presentLoginPrompt()">Logga in</button>
-        </div>
-  </ion-toolbar>
-</ion-footer>
+      <!-- Code for the shade effect with popup heart on every img  -->
+      <div class="nd-wrap nd-style-1" *ngFor="let media of gallery_items">
+            <img [src]="media.url">
+          <div class="nd-content">
+              <div class="nd-content_inner">
+                  <div class="nd-content_inner1">
+                      <h3 class="nd-title">{{incMediaViewCount}}</h3>
+                      <span class="nd-icon">
+                          <ion-icon color=danger name="heart"></ion-icon>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+  <!--
+    <section class="images">
+      <img *ngFor="let media of gallery_items" [src]="media.url">
+    </section>
+  -->
+</ion-content>

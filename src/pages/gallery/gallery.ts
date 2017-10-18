@@ -32,6 +32,7 @@ export class GalleryPage {
 
       this.skate.getMedia((media)=>{
         this.gallery_items = media;
+
         media.sort(function(a,b){
           return b.uploadTime - a.uploadTime
         });
@@ -40,6 +41,10 @@ export class GalleryPage {
         for (let i=0;i<this.gallery_items.length;i++) this.gallery_items[i].shape = Math.floor(Math.random() * this.shapes.length);
         for (let i=0;i<this.gallery_items.length;i++) this.gallery_items[i].color = Math.floor(Math.random() * this.colors.length);
       });
+
+
+
+
   }
 
   uploadPageModal() {
@@ -52,6 +57,8 @@ export class GalleryPage {
    const profileModal = this.modalCtrl.create(GalleryPage, {media} );
    profileModal.present();
  }
+
+
   presentLoginPrompt() {
     const loginPrompt = this.alertCtrl.create({
       message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
@@ -92,4 +99,3 @@ export class GalleryPage {
     });
   }
 }
-
