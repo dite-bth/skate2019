@@ -27,6 +27,34 @@ public version: string = "0.7";
     xhrTag.send();
   }
 
+  editLandingPageData(meta,callback) {
+    var url = 'http://nile16.nu:5984/misc/landingPageData';
+    var xhr1 =  new XMLHttpRequest();
+    xhr1.open('GET', url, true);
+    xhr1.setRequestHeader("Content-Type", "application/json");
+    xhr1.onreadystatechange = function(response) {
+      if (xhr1.readyState == 4) {
+        var doc = JSON.parse(xhr1.response);
+        if(doc.error){
+          callback(doc);
+          return(1);
+        }
+        delete doc._id;
+        Object.assign(doc,meta);
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open('PUT', url, true);
+        xhr2.setRequestHeader("Content-Type", "application/json");
+        xhr2.onreadystatechange = function(response) {
+          if (xhr2.readyState == 4) {
+            callback(xhr2.response);
+          }
+        }
+        xhr2.send(JSON.stringify(doc));
+      }
+    }
+    xhr1.send();
+  }
+
   getWhiteListedTags(callback){
     var xhrTag =  new XMLHttpRequest();
     xhrTag.open('GET', 'http://nile16.nu:5984/misc/tags', true);
