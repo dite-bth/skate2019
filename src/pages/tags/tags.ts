@@ -22,7 +22,7 @@ export class TagsPage {
   this.skate.getWhiteListedTags((tag) => {
     this.tags = tag;
   });
-
+  
   this.temp = [];
   }
 

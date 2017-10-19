@@ -6,21 +6,20 @@ import { UploadPage } from '../upload/upload';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EditorPage} from '../editor/editor';
 
-
-
-
 @Component({
-  selector: 'page-home',
+  selector: 'page-gallery',
   templateUrl: 'gallery.html'
 })
 export class GalleryPage {
 
   gallery_items: any;
+  /*
   shapes = ['M0 100 L80 100 L100 80 L100 60 L80 60 L80 40 L60 40 L60 20 L40 20 L40 0 L20 0 L0 20',
             'M0 100 L80 100 L100 80 L40 0 L20 0 L0 20',
             'M40 100 L60 100 L60 60 L100 60 L100 40 L0 40 L0 60 L40 60 L40 100',
             'M 0 100 L 80 100 L 100 80 C 100 80 30 60 40 0 L 20 0 L 0 20 L 0 100'];
   colors = ['#88D5A1','#FEE185','#FBAC8D','#BDE3FF'];
+  */
 
   constructor(
     public navCtrl: NavController,
@@ -30,15 +29,20 @@ export class GalleryPage {
     public auth: AuthProvider,
     params: NavParams) {
 
+      //this.skate.incMediaViewCount("5f4f2c68594976ce99c32f1f8300e0a9");
+
       this.skate.getMedia((media)=>{
         this.gallery_items = media;
+
         media.sort(function(a,b){
           return b.uploadTime - a.uploadTime
         });
+        /*
         // Thanks to retarded angular, random shapes can not be inserted direct in HTML, but rather has to be stored first. See:
         // https://stackoverflow.com/questions/43079990/angular-2-expression-has-changed-after-it-was-checked-error-with-dynamic-image
         for (let i=0;i<this.gallery_items.length;i++) this.gallery_items[i].shape = Math.floor(Math.random() * this.shapes.length);
         for (let i=0;i<this.gallery_items.length;i++) this.gallery_items[i].color = Math.floor(Math.random() * this.colors.length);
+        */
       });
   }
 
@@ -47,11 +51,6 @@ export class GalleryPage {
     uploadModal.present();
   }
 
-  presentProfileModal(media) {
-   //this.skate.incMediaViewCount("5f4f2c68594976ce99c32f1f8300e0a9");
-   const profileModal = this.modalCtrl.create(GalleryPage, {media} );
-   profileModal.present();
- }
   presentLoginPrompt() {
     const loginPrompt = this.alertCtrl.create({
       message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
@@ -92,4 +91,3 @@ export class GalleryPage {
     });
   }
 }
-

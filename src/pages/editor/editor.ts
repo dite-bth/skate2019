@@ -3,6 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 import { EditorGalleryModalPage } from '../editor/editor-gallery-modal';
+import { EditorLandingModalPage } from '../editor/editor-landing-modal';
 import { TagsPage} from '../tags/tags';
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -32,6 +33,10 @@ export class EditorPage {
 
   showTags(){
     this.navCtrl.push(TagsPage);
+  }
+
+  showEditLanding(){
+    this.navCtrl.push(EditorLandingModalPage);
   }
 
   showPrompt() {

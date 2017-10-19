@@ -15,6 +15,7 @@ import { SkateProvider } from '../providers/skate/skate';
 import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
 import { TagsPage} from '../pages/tags/tags';
+import { EditorLandingModalPage } from '../pages/editor/editor-landing-modal';
 import { AuthProvider } from '../providers/auth/auth';
 import { MapPage } from '../pages/map/map'
 import { TabsPage } from '../pages/tabs/tabs';
@@ -33,6 +34,7 @@ import { TagsModalPage } from '../pages/tags/tags-modal';
     EditorGalleryModalPage,
     ModalContentPage,
     TagsPage,
+    EditorLandingModalPage,
     MapPage,
     TabsPage,
     InfoPage,
@@ -55,6 +57,7 @@ import { TagsModalPage } from '../pages/tags/tags-modal';
     EditorGalleryModalPage,
     ModalContentPage,
     TagsPage,
+    EditorLandingModalPage,
     MapPage,
     TabsPage,
     InfoPage,
