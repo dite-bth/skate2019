@@ -5,6 +5,7 @@ import { SkateProvider } from '../../providers/skate/skate';
 import { UploadPage } from '../upload/upload';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EditorPage} from '../editor/editor';
+import { ModalImagePage } from '../modalimage/modalimage';
 
 @Component({
   selector: 'page-gallery',
@@ -44,6 +45,10 @@ export class GalleryPage {
         for (let i=0;i<this.gallery_items.length;i++) this.gallery_items[i].color = Math.floor(Math.random() * this.colors.length);
         */
       });
+  }
+
+  showImage(media) {
+    this.navCtrl.push(ModalImagePage, media);
   }
 
   uploadPageModal() {

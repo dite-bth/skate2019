@@ -9,7 +9,7 @@
 
   <!-- image gallery -->
   <section class="images">
-    <img *ngFor="let media of gallery_items" [src]="media.url">
+    <img *ngFor="let media of gallery_items" [src]="media.url" (click)="showImage(media)">
   </section>
 
 
