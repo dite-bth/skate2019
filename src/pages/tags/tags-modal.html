@@ -15,10 +15,11 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-label>Blacklist taggar</ion-label>
+      <ion-label>Kryssa i de taggar som ska hamna i "godkända taggar"-listan</ion-label>
         <ion-item *ngFor="let name of temp">
           <ion-label>{{name}}</ion-label>
-  -         <ion-checkbox [(ngModel)]="name.value"></ion-checkbox>
-  -     </ion-item>
+          <ion-checkbox [(ngModel)]="name.value"></ion-checkbox>
+        </ion-item>
+      <button (click)="addTags()" ion-button>Add to whitelist</button>
     </ion-list>
 </ion-content>

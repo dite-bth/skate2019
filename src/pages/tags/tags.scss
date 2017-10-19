@@ -1,13 +1,19 @@
 page-tags {
-  
-  .centerDiv{text-align: center !important;}
 
-  h1{
-    font-family: "Montserrat" !important;
-    text-align: center;
-    font-size: 25px !important;
-    color: white !important;
-    font-weight: bold;
+  ion-content {
+      background-color: #c3c3c3 !important;
+      background-size: cover;
   }
+
+  ion-item {
+      background-color:#c3c3c3 !important;
+      background-size: cover;
+      text-align: left !important;
+  }
+  ion-label {
+    text-align: left !important;
+    color: black !important; 
+  }
+
 
 }

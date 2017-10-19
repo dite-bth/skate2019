@@ -27,7 +27,6 @@ export class TagsPage {
   }
 
   blacklistModal(unlisted_tags) {
-  //console.log(this.unlisted_tags);
 
     const tagsModal = this.modalCtrl.create(TagsModalPage, {unlisted_tags});
     tagsModal.present();
@@ -45,6 +44,5 @@ export class TagsPage {
     return a;
   },[]); //tom array blir starting value för a
     this.unlisted_tags = uniq.filter(x => this.tags.indexOf(x) == -1) //jämför uniq array med this tags array, unlisted_tags blir en "blacklist" arr
-  //  console.log(this.unlisted_tags);
   }
 }

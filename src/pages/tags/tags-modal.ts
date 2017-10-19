@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SkateProvider } from '../../providers/skate/skate';
 
 /**
  * Generated class for the TagsModalPage page.
@@ -17,7 +18,13 @@ export class TagsModalPage {
 
 item: any = [];
 temp: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+whitelist: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public skate: SkateProvider) {
+    //this.skate.updateWhiteListedTags(["test"],(res) => {
+    //  console.log("got:",res);
+  //  });
+
     this.temp = [];
   }
 
@@ -32,6 +39,14 @@ temp: any;
         this.temp.push(this.item[i][j]);
       }
    }
-   console.log(this.temp);
   }
+
+  addTags() {
+    this.whitelist = [];
+    for (var i=0;i<this.temp.length;i++){
+      if (this.temp[i].value) //this.whitelist.push(this.temp[i].value);
+        console.log(this.temp[i].value);
+      }
+
+    }
 }

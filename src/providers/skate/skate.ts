@@ -38,6 +38,33 @@ public version: string = "0.7";
     xhrTag.send();
   }
 
+  updateWhiteListedTags(doc,callback){
+    var url = 'http://nile16.nu:5984/misc/tags';
+    var xhrTag =  new XMLHttpRequest();
+    xhrTag.open('GET', url, true);
+    xhrTag.setRequestHeader("Content-Type", "application/json");
+    xhrTag.onreadystatechange = function(response) {
+      if (xhrTag.readyState == 4) {
+        var arr = JSON.parse(xhrTag.response).value;
+        var docRev = JSON.parse(xhrTag.response)._rev;
+        console.log(docRev);
+        var array = arr.concat(doc);
+        console.log(array);
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open('PUT', url+'?rev='+docRev, true);
+        xhr2.setRequestHeader("Content-Type", "application/json");
+        xhr2.onreadystatechange = function(response) {
+          if (xhr2.readyState == 4) {
+            callback(xhr2.response);
+            }
+          }
+          xhr2.send(JSON.stringify({value: array}));
+       }
+    }
+    xhrTag.send();
+  }
+
+
   getMediaTags(callback){
     var xhrTag = new XMLHttpRequest();
     xhrTag.open('GET', 'http://nile16.nu:5984/media/_all_docs?include_docs=true', true);
