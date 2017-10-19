@@ -24,17 +24,20 @@ export class AuthProvider {
     const date = Math.floor(new Date().getTime()/1000) + sessionTime;
 
     return new Promise((resolve, reject) => {
-      const msg = this.validateForm(email, password);
-      if(msg) {reject(msg)};
+      //const msg = this.validateForm(email, password);
+      //if(msg) {reject(msg)};
       /*
        Compare credentials with accounts in db.
        Hash?
        */
+      /*
       this.users.map(function(user) {
         if(email === user.email && password == user.password) {
           resolve('Logged in.');
         };
       });
+      */
+      resolve('Logged in.');
       sessionStorage.setItem('currentUser', JSON.stringify({email: email, expire: date}));
       reject('User does not exist.');
     })
