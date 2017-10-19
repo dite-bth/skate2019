@@ -49,6 +49,7 @@ export class GalleryPage {
 
   showImage(media) {
     //this.navCtrl.push(ModalImagePage, media);
+    this.skate.incMediaViewCount(media._id);
     const imagemodal = this.modalCtrl.create(ModalImagePage, media);
     imagemodal.present();
   }
