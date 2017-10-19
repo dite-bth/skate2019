@@ -48,7 +48,9 @@ export class GalleryPage {
   }
 
   showImage(media) {
-    this.navCtrl.push(ModalImagePage, media);
+    //this.navCtrl.push(ModalImagePage, media);
+    const imagemodal = this.modalCtrl.create(ModalImagePage, media);
+    imagemodal.present();
   }
 
   uploadPageModal() {
