@@ -7,13 +7,14 @@ Ionic pages and navigation.
 
 
 <ion-content class="card-background-page" overflow-scroll="true" color="dark">
+
     <button ion-button clear color="light" (click)="showMap()">Karta</button>
     <h1 class="cntr center">Här hittar du ett schema på följade utställningar</h1>
     <ion-grid>
         <ion-row>
             <ion-col col-md col-ls col-12>
                 <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/malmö.jpeg" />
+                    <img class="item" src="assets/img/sundsvall.jpg" />
                     <div class="black-transparent-overlay">
 
                     </div>
@@ -26,7 +27,7 @@ Ionic pages and navigation.
             </ion-col>
             <ion-col col-md col-ls col-12>
                 <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/malmö.jpeg" />
+                    <img class="item" src="assets/img/umea.jpg" />
                     <div class="black-transparent-overlay">
 
                     </div>
@@ -38,7 +39,7 @@ Ionic pages and navigation.
                 </ion-card>
             </ion-col><ion-col col-md col-ls col-12>
             <ion-card (click)="openModal({charNum: 2})">
-                <img class="item" src="assets/img/malmö.jpeg" />
+                <img class="item" src="assets/img/karlstad.jpg" />
                 <div class="black-transparent-overlay">
 
                 </div>
@@ -116,8 +117,30 @@ Ionic pages and navigation.
                 </ion-card>
             </ion-col>
         </ion-row>
-        
+
     </ion-grid>
+    <table>
+        <tr>
+            <th>Stad</th>
+            <th>Datum</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td *ngFor="let media of city_items">{{ media.ort }}</td>
+        </tr>
+        <tr>
+            <td *ngFor="let media of city_items">{{ media.tid }}</td>
+        </tr>
+        <tr>
+            <td *ngFor="let media of city_items">{{ media.adress }}</td>
+        </tr>
+        <tr>
+            <td *ngFor="let media of city_items">{{ media.info }}</td>
+        </tr>
+
+    </table>
+
+    <h1 *ngFor="let media of city_items">{{ media.ort }}</h1>
 </ion-content>
 <ion-menu [content]="mycontent">
     <ion-content>
@@ -128,11 +151,11 @@ Ionic pages and navigation.
 </ion-menu>
 
 <ion-footer>
-  <ion-toolbar color="dark">
+    <ion-toolbar color="dark">
         <div class="right">
             <button ion-button clear (click)="presentLoginPrompt()">Logga in</button>
         </div>
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-footer>
 
 <ion-nav #mycontent [root]="rootPage"></ion-nav>

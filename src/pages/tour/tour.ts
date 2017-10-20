@@ -21,10 +21,10 @@ import { EditorPage } from '../editor/editor';
     templateUrl: 'tour.html',
 })
 export class TourPage {
-
+    city_items: any;
     constructor(public navCtrl: NavController, public navParams: NavParams, public skate:SkateProvider, public modalCtrl: ModalController,public auth: AuthProvider, public alertCtrl: AlertController) {
-        this.skate.getTour(function(tour){
-            console.log(tour);
+        this.skate.getTour((tour)=>{
+            this.city_items = tour;
         });
     }
 
@@ -73,16 +73,16 @@ export class TourPage {
         loginPrompt.present();
     };
 
-  login(user) {
-    this.auth.signInWithEmailAndPassword(user.email, user.password, user.admin).then(() => {
-      this.navCtrl.push(EditorPage);
-    }).catch((reason) => {
-      console.log(reason);
-      const errorPrompt = this.alertCtrl.create({
-        message: reason,
-        buttons: ['OK'],
-      });
-      errorPrompt.present();
-    });
-  }
+    login(user) {
+        this.auth.signInWithEmailAndPassword(user.email, user.password, user.admin).then(() => {
+            this.navCtrl.push(EditorPage);
+        }).catch((reason) => {
+            console.log(reason);
+            const errorPrompt = this.alertCtrl.create({
+                message: reason,
+                buttons: ['OK'],
+            });
+            errorPrompt.present();
+        });
+    }
 }
