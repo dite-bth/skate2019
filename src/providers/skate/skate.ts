@@ -191,7 +191,8 @@ public version: string = "0.7";
           for (var i=0;i<rows.length;i++){
             var temp = {
               email: rows[i].doc.email,
-              password: rows[i].doc.password
+              password: rows[i].doc.password,
+              admin: rows[i].doc.admin
             };
             result.push(temp);
           }

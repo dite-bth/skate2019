@@ -46,7 +46,7 @@ export class HomePage {
 
   presentLoginPrompt() {
     const loginPrompt = this.alertCtrl.create({
-      message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
+      message: 'Behövs inget inlogg.',
       inputs: [
         {
           name: 'email',
@@ -57,6 +57,11 @@ export class HomePage {
           name: 'password',
           placeholder: 'Lösenord',
           type: 'password'
+        },
+        {
+          name: 'admin',
+          placeholder: 'Admin? true/elr lämna tom',
+          type: 'text',
         }
       ],
       buttons: [
@@ -72,8 +77,8 @@ export class HomePage {
   };
 
   login(user) {
-    this.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
-      this.navCtrl.push(EditorPage);
+    this.auth.signInWithEmailAndPassword(user.email, user.password, user.admin).then(() => {
+        this.navCtrl.push(EditorPage);
     }).catch((reason) => {
       console.log(reason);
       const errorPrompt = this.alertCtrl.create({
