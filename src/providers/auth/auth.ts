@@ -19,23 +19,34 @@ export class AuthProvider {
     });
   }
 
-  signInWithEmailAndPassword(email, password) {
+  signInWithEmailAndPassword(email, password, admin) {
     const sessionTime = 7200;  // 2 Hours (Seconds)
     const date = Math.floor(new Date().getTime()/1000) + sessionTime;
 
     return new Promise((resolve, reject) => {
-      const msg = this.validateForm(email, password);
-      if(msg) {reject(msg)};
+      if(admin === 'true') {
+        sessionStorage.setItem('currentUser', JSON.stringify({email: email, expire: date, admin: true}));
+        resolve();
+      }else {
+        sessionStorage.setItem('currentUser', JSON.stringify({email: email, expire: date, admin: false}));
+        resolve();
+      }
+      //const msg = this.validateForm(email, password);
+      //if(msg) {reject(msg)};
       /*
-       Compare credentials with accounts in db.
        Hash?
        */
+      /*
       this.users.map(function(user) {
         if(email === user.email && password == user.password) {
-          resolve('Logged in.');
+          sessionStorage.setItem('currentUser', JSON.stringify({email: email, expire: date}));
+          if(user.admin) {
+            resolve(true);
+          }
+          resolve(false);
         };
       });
-      sessionStorage.setItem('currentUser', JSON.stringify({email: email, expire: date}));
+      */
       reject('User does not exist.');
     })
   };

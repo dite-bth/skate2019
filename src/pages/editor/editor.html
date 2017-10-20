@@ -10,7 +10,6 @@ Ionic pages and navigation.
     <div class="centerDiv" style="text-align: center !important;">
       <h1>Editor</h1>
       <button ion-button round (click)="logout()">Logga ut</button>
-      <button ion-button style="color: black !important;" color="primary" (click)="showPrompt()"><ion-icon name="log-in"></ion-icon>&nbsp; Logga in</button>
       <button ion-button style="color: black !important;" color="secondary"><ion-icon name="add">&nbsp; Lägg till</ion-icon></button>
       <button ion-button style="color: black !important;" color="yellow"><ion-icon name="build">&nbsp; Editering för allt</ion-icon></button>
       <button ion-button style="color: black !important;" color="yellow"><ion-icon name="build">&nbsp; Editering för galleritext</ion-icon></button>
@@ -27,17 +26,15 @@ Ionic pages and navigation.
 
       <ion-card>
         <p>Här kommer olika innehåll visas beroende på vem som är inloggad</p>
-        <p>Nedanför är en prototyp för redigering av Galleriet, har inte lagt ner tid på styling elr hur det ska visas på sidan...</p>
       </ion-card>
 
     </ion-row>
   </ion-grid>
+  <h1>{{status}}</h1>
 
+  <!-- Admin content goes here -->
 
-
-
-
-
+<!--
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let media of gallery_items">
@@ -55,5 +52,6 @@ Ionic pages and navigation.
       </ion-col>
     </ion-row>
   </ion-grid>
+-->
 
 </ion-content>

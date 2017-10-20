@@ -16,6 +16,7 @@ import { EditorGalleryModalPage } from '../pages/editor/editor-gallery-modal';
 import { ModalContentPage } from '../pages/tour/pages';
 import { TagsPage} from '../pages/tags/tags';
 import { EditorLandingModalPage } from '../pages/editor/editor-landing-modal';
+import { ModalImagePage } from '../pages/modalimage/modalimage';
 import { AuthProvider } from '../providers/auth/auth';
 import { MapPage } from '../pages/map/map'
 import { TabsPage } from '../pages/tabs/tabs';
@@ -35,6 +36,7 @@ import { TagsModalPage } from '../pages/tags/tags-modal';
     ModalContentPage,
     TagsPage,
     EditorLandingModalPage,
+    ModalImagePage,
     MapPage,
     TabsPage,
     InfoPage,
@@ -58,6 +60,7 @@ import { TagsModalPage } from '../pages/tags/tags-modal';
     ModalContentPage,
     TagsPage,
     EditorLandingModalPage,
+    ModalImagePage,
     MapPage,
     TabsPage,
     InfoPage,

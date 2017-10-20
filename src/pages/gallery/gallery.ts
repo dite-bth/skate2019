@@ -5,6 +5,7 @@ import { SkateProvider } from '../../providers/skate/skate';
 import { UploadPage } from '../upload/upload';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EditorPage} from '../editor/editor';
+import { ModalImagePage } from '../modalimage/modalimage';
 
 @Component({
   selector: 'page-gallery',
@@ -46,6 +47,13 @@ export class GalleryPage {
       });
   }
 
+  showImage(media) {
+    //this.navCtrl.push(ModalImagePage, media);
+    this.skate.incMediaViewCount(media._id);
+    const imagemodal = this.modalCtrl.create(ModalImagePage, media);
+    imagemodal.present();
+  }
+
   uploadPageModal() {
     const uploadModal = this.modalCtrl.create(UploadPage);
     uploadModal.present();
@@ -53,7 +61,7 @@ export class GalleryPage {
 
   presentLoginPrompt() {
     const loginPrompt = this.alertCtrl.create({
-      message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
+      message: 'Behövs inget inlogg.',
       inputs: [
         {
           name: 'email',
@@ -64,6 +72,11 @@ export class GalleryPage {
           name: 'password',
           placeholder: 'Lösenord',
           type: 'password'
+        },
+        {
+          name: 'admin',
+          placeholder: 'Admin? true/elr lämna tom',
+          type: 'text',
         }
       ],
       buttons: [
@@ -79,7 +92,7 @@ export class GalleryPage {
   };
 
   login(user) {
-    this.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
+    this.auth.signInWithEmailAndPassword(user.email, user.password, user.admin).then(() => {
       this.navCtrl.push(EditorPage);
     }).catch((reason) => {
       console.log(reason);

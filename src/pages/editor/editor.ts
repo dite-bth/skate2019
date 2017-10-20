@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import {ModalController, NavController, NavParams} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SkateProvider } from '../../providers/skate/skate';
 import { EditorGalleryModalPage } from '../editor/editor-gallery-modal';
@@ -15,8 +15,10 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class EditorPage {
 
   gallery_items: any;
+  admin: any;
+  status: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController, public auth: AuthProvider) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public skate:SkateProvider, public modalCtrl: ModalController, public auth: AuthProvider, public navParams: NavParams) {
     this.skate.getWhiteListedTags((tags) => {
 
     })
@@ -25,6 +27,12 @@ export class EditorPage {
       this.gallery_items = items;
     })
 
+
+    if(this.auth.getCurrentUser().admin) {
+      this.status = 'Loggad in som Admin';
+    }else {
+      this.status = 'Loggad in som Moderator';
+    }
 
     //this.skate.editMedia("5f4f2c68594976ce99c32f1f830349f5",{status:1,nick:"sk8 kiddo"},(res) => {
     //  console.log("got:",res);
@@ -37,34 +45,6 @@ export class EditorPage {
 
   showEditLanding(){
     this.navCtrl.push(EditorLandingModalPage);
-  }
-
-  showPrompt() {
-    let prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Här loggar Admins in för ändra innehåll",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
-    });
-    prompt.present();
   }
 
   editGalleryItem(item) {

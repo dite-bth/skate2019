@@ -191,7 +191,8 @@ public version: string = "0.7";
           for (var i=0;i<rows.length;i++){
             var temp = {
               email: rows[i].doc.email,
-              password: rows[i].doc.password
+              password: rows[i].doc.password,
+              admin: rows[i].doc.admin
             };
             result.push(temp);
           }
@@ -265,7 +266,7 @@ public version: string = "0.7";
       xhr1.send();
     }
 
-    incMediaViewCount(docId,callback) {
+    incMediaViewCount(docId) {
       var url = 'http://nile16.nu:5984/media/';
       var xhr1 =  new XMLHttpRequest();
       xhr1.open('GET', url+docId, true);
