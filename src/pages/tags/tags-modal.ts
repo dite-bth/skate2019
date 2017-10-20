@@ -19,6 +19,7 @@ export class TagsModalPage {
 item: any = [];
 temp: any;
 whitelist: any;
+blacklist: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public skate: SkateProvider) {
     //this.skate.updateWhiteListedTags(["test"],(res) => {
@@ -26,6 +27,9 @@ whitelist: any;
   //  });
 
     this.temp = [];
+    this.whitelist = [];
+    this.blacklist = [];
+
   }
 
 
@@ -37,16 +41,16 @@ whitelist: any;
     for (let i = 0; i < this.item.length; i++) {
       for (let j = 0; j < this.item[i].length; j++) {
         this.temp.push(this.item[i][j]);
+
       }
    }
+//   console.log(this.temp)
   }
 
   addTags() {
-    this.whitelist = [];
     for (var i=0;i<this.temp.length;i++){
-      if (this.temp[i].value) //this.whitelist.push(this.temp[i].value);
-        console.log(this.temp[i].value);
-      }
-
+      if (this.temp[i]) this.whitelist.push(this.temp[i]);
     }
+    console.log(this.whitelist);
+  }
 }
