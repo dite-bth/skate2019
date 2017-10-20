@@ -41,35 +41,40 @@ export class TourPage {
     }
 
 
-  presentLoginPrompt() {
-    const loginPrompt = this.alertCtrl.create({
-      message: 'Inlogg för moderatorerna      epost: admin@gmail.com, lösenord: 123',
-      inputs: [
-        {
-          name: 'email',
-          placeholder: 'e-post',
-          type: 'email'
-        },
-        {
-          name: 'password',
-          placeholder: 'Lösenord',
-          type: 'password'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Logga in',
-          handler: (user) => {
-            this.login(user);
-          }
-        }
-      ]
-    });
-    loginPrompt.present();
-  };
+    presentLoginPrompt() {
+        const loginPrompt = this.alertCtrl.create({
+            message: 'Behövs inget inlogg.',
+            inputs: [
+                {
+                    name: 'email',
+                    placeholder: 'e-post',
+                    type: 'email'
+                },
+                {
+                    name: 'password',
+                    placeholder: 'Lösenord',
+                    type: 'password'
+                },
+                {
+                    name: 'admin',
+                    placeholder: 'Admin? true/elr lämna tom',
+                    type: 'text',
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Logga in',
+                    handler: (user) => {
+                        this.login(user);
+                    }
+                }
+            ]
+        });
+        loginPrompt.present();
+    };
 
   login(user) {
-    this.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
+    this.auth.signInWithEmailAndPassword(user.email, user.password, user.admin).then(() => {
       this.navCtrl.push(EditorPage);
     }).catch((reason) => {
       console.log(reason);
