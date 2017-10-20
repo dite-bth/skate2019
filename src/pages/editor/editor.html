@@ -4,23 +4,13 @@ Generated template for the EditorPage page.
 See http://ionicframework.com/docs/components/#navigation for more info on
 Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar color="dark">
-    <div class="centerDiv" style="text-align: center !important;">
-      <h1>Editor</h1>
-      <button ion-button round (click)="logout()">Logga ut</button>
-      <button ion-button style="color: black !important;" color="secondary"><ion-icon name="add">&nbsp; Lägg till</ion-icon></button>
-      <button ion-button style="color: black !important;" color="yellow"><ion-icon name="build">&nbsp; Editering för allt</ion-icon></button>
-      <button ion-button style="color: black !important;" color="yellow"><ion-icon name="build">&nbsp; Editering för galleritext</ion-icon></button>
-      <button ion-button style="color: black !important;" color="yellow" (click)="showEditLanding()"><ion-icon name="editLandingPage">&nbsp; Editering för landing page</ion-icon></button>
-      <button ion-button style="color: black !important;"color="danger" (click)="showTags()"><ion-icon name="pricetags">&nbsp; Taggar </ion-icon></button>
-    </div>
-  </ion-navbar>
-
-</ion-header>
 
 <ion-content padding >
+  <div class="centerDiv" style="text-align: center !important;">
+    <button ion-button round (click)="logout()">Logga ut</button>
+    <button ion-button style="color: black !important;" color="yellow" (click)="showEditLanding()"><ion-icon name="editLandingPage">&nbsp; Editering för landing page</ion-icon></button>
+    <button ion-button style="color: black !important;"color="danger" (click)="showTags()"><ion-icon name="pricetags">&nbsp; Moderering av Taggar </ion-icon></button>
+  </div>
   <ion-grid>
     <ion-row>
 
