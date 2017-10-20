@@ -10,145 +10,20 @@ Ionic pages and navigation.
 
     <button ion-button clear color="light" (click)="showMap()">Karta</button>
     <h1 class="cntr center">Här hittar du ett schema på följade utställningar</h1>
-    <ion-grid>
-        <ion-row>
-            <ion-col col-md col-ls col-12>
-                <ion-card (click)="openModal({charNum: 2})">
+   
+                <ion-card *ngFor="let media of city_items" (click)="openModal({charNum: 2})">
                     <img class="item" src="assets/img/sundsvall.jpg" />
                     <div class="black-transparent-overlay">
 
                     </div>
-                    <div class="card-title">Malmö
+                    <div class="card-title">{{media.info}}
                         <br>
                     </div>
-                    <div class="card-subtitle">Fin stad!</div>
+                    <div class="card-subtitle">{{media.ort}}</div>
 
                 </ion-card>
-            </ion-col>
-            <ion-col col-md col-ls col-12>
-                <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/umea.jpg" />
-                    <div class="black-transparent-overlay">
-
-                    </div>
-                    <div class="card-title">Malmö
-                        <br>
-                    </div>
-                    <div class="card-subtitle">Fin stad!</div>
-
-                </ion-card>
-            </ion-col><ion-col col-md col-ls col-12>
-            <ion-card (click)="openModal({charNum: 2})">
-                <img class="item" src="assets/img/karlstad.jpg" />
-                <div class="black-transparent-overlay">
-
-                </div>
-                <div class="card-title">Malmö
-                    <br>
-                </div>
-                <div class="card-subtitle">Fin stad!</div>
-
-            </ion-card>
-            </ion-col>
-            <ion-col col-md col-ls col-12>
-                <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/karlstad.jpg" />
-                    <div class="black-transparent-overlay">
-
-                    </div>
-                    <div class="card-title">Malmö
-                        <br>
-                    </div>
-                    <div class="card-subtitle">Fin stad!</div>
-
-                </ion-card>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-md col-ls col-12>
-                <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/malmö.jpeg" />
-                    <div class="black-transparent-overlay">
-
-                    </div>
-                    <div class="card-title">Malmö
-                        <br>
-                    </div>
-                    <div class="card-subtitle">Fin stad!</div>
-
-                </ion-card>
-            </ion-col>
-            <ion-col col-md col-ls col-12>
-                <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/malmö.jpeg" />
-                    <div class="black-transparent-overlay">
-
-                    </div>
-                    <div class="card-title">Malmö
-                        <br>
-                    </div>
-                    <div class="card-subtitle">Fin stad!</div>
-
-                </ion-card>
-            </ion-col><ion-col col-md col-ls col-12>
-            <ion-card (click)="openModal({charNum: 2})">
-                <img class="item" src="assets/img/malmö.jpeg" />
-                <div class="black-transparent-overlay">
-
-                </div>
-                <div class="card-title">Malmö
-                    <br>
-                </div>
-                <div class="card-subtitle">Fin stad!</div>
-
-            </ion-card>
-            </ion-col>
-            <ion-col col-md col-ls col-12>
-                <ion-card (click)="openModal({charNum: 2})">
-                    <img class="item" src="assets/img/karlstad.jpg" />
-                    <div class="black-transparent-overlay">
-
-                    </div>
-                    <div class="card-title">Malmö
-                        <br>
-                    </div>
-                    <div class="card-subtitle">Fin stad!</div>
-
-                </ion-card>
-            </ion-col>
-        </ion-row>
-
-    </ion-grid>
-    <table>
-        <tr>
-            <th>Stad</th>
-            <th>Datum</th>
-            <th>Address</th>
-        </tr>
-        <tr>
-            <td *ngFor="let media of city_items">{{ media.ort }}</td>
-        </tr>
-        <tr>
-            <td *ngFor="let media of city_items">{{ media.tid }}</td>
-        </tr>
-        <tr>
-            <td *ngFor="let media of city_items">{{ media.adress }}</td>
-        </tr>
-        <tr>
-            <td *ngFor="let media of city_items">{{ media.info }}</td>
-        </tr>
-
-    </table>
-
-    <h1 *ngFor="let media of city_items">{{ media.ort }}</h1>
 </ion-content>
-<ion-menu [content]="mycontent">
-    <ion-content>
-        <ion-list>
-            ...
-        </ion-list>
-    </ion-content>
-</ion-menu>
+
 
 <ion-footer>
     <ion-toolbar color="dark">
